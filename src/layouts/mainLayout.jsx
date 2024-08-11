@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import SmoothScrollbar from "smooth-scrollbar";
 import Navbar from "../components/common/Navbar";
+import Footer from "../components/common/Footer";
 
 export default function MainLayout() {
   const scrollContainerRef = useRef(null);
@@ -29,6 +30,7 @@ export default function MainLayout() {
     >
       <Navbar />
       <Outlet />
+      <Footer />
     </main>
   );
 }
