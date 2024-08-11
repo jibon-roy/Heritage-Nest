@@ -3,7 +3,7 @@ import Button from "../../components/actions/Button";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 export default function Banner() {
   return (
-    <div className="relative h-screen lg:max-h-[500px]">
+    <div className="relative h-screen shadow-lg drop-shadow-lg lg:max-h-[500px]">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
