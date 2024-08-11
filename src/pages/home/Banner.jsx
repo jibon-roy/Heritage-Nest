@@ -1,4 +1,4 @@
-import bgVideo from "../../assets/images/bgVideo.mp4";
+import bgVideo from "../../assets/bgVideo.mp4";
 import Button from "../../components/actions/Button";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 export default function Banner() {
@@ -15,7 +15,13 @@ export default function Banner() {
         Your browser does not support the video tag.
       </video>
 
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 10%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0.8) 100%)",
+        }}
+      ></div>
 
       <div className="relative flex items-center justify-center h-screen lg:max-h-[500px] text-white text-center">
         <div className="max-w-2xl text-center">
