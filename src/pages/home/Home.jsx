@@ -6,6 +6,7 @@ import bg3 from "../../assets/images/bg3.jpg";
 import bg4 from "../../assets/images/bg4.jpg";
 import bg5 from "../../assets/images/bg5.jpg";
 import bg6 from "../../assets/images/bg6.jpg";
+import Services from "./Services";
 
 export default function Home() {
   return (
@@ -46,6 +47,7 @@ export default function Home() {
         row
         col
       />
+      <Services />
     </>
   );
 }
