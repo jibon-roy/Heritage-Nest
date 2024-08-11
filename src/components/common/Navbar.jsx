@@ -7,7 +7,7 @@ export default function Navbar() {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content bg-blue-50 flex flex-col">
           {/* Navbar */}
-          <div className="navbar grid grid-cols-3 container px-20  w-full">
+          <div className="navbar grid grid-cols-3 container px-2 md:px-10 lg:px-20   w-full">
             <div className="lg:hidden">
               <label
                 htmlFor="my-drawer-3"

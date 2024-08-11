@@ -10,7 +10,9 @@ export default function Section({
       style={{ background: background, ...style }}
       className={sectionClass}
     >
-      <div className={`container ${className}`}>{children}</div>
+      <div className={`container px-2 md:px-10 lg:px-20  ${className}`}>
+        {children}
+      </div>
     </section>
   );
 }
