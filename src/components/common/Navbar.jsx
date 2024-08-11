@@ -5,9 +5,9 @@ export default function Navbar() {
     <>
       <div className="drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col">
+        <div className="drawer-content bg-blue-50 flex flex-col">
           {/* Navbar */}
-          <div className="navbar grid grid-cols-3 bg-blue-50 w-full">
+          <div className="navbar grid grid-cols-3 container px-20  w-full">
             <div className="lg:hidden">
               <label
                 htmlFor="my-drawer-3"
@@ -29,20 +29,18 @@ export default function Navbar() {
                 </svg>
               </label>
             </div>
-            <div className="hidden lg:block">
-              <ul className="menu menu-horizontal">
-                <li>
-                  <a>Navbar Item 1</a>
-                </li>
-                <li>
-                  <a>Navbar Item 2</a>
-                </li>
-              </ul>
+            <div className="hidden lg:flex">
+              <div className="mx-2  px-2">Buy</div>
+              <div className="mx-2  px-2">Sell</div>
+              <div className="mx-2  px-2">Services</div>
             </div>
             <div className="mx-2 flex-1 flex justify-center px-2">
               <Logo />
             </div>
-            <div className="mx-2  px-2">Navbar Title</div>
+            <div className="flex justify-end">
+              <div className="mx-2  px-2">Manage Rentals</div>
+              <div className="mx-2  px-2">Sign Up</div>
+            </div>
           </div>
         </div>
         <div className="drawer-side">
