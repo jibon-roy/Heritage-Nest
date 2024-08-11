@@ -1,10 +1,12 @@
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Logo from "../design/Logo";
 import Section from "../design/Section";
+import { PiHandPeace } from "react-icons/pi";
 
 export default function Footer() {
   return (
     <Section className={"bg-blue-50"}>
-      <footer className="footer  text-base-content p-10">
+      <footer className="footer  text-base-content py-16">
         <aside>
           <Logo />
           <p>
@@ -105,6 +107,15 @@ export default function Footer() {
             Contact
           </a>
         </nav>
+      </footer>
+      <footer className="py-10 flex justify-between border-t border-blue-100">
+        <div>© 2024 Heritage- Nest . All rights reserved.</div>
+        <div className="flex gap-6 text-blue-800 text-2xl">
+          <FaTwitter className="cursor-pointer" />
+          <FaLinkedin className="cursor-pointer" />
+          <FaFacebook className="cursor-pointer" />
+          <PiHandPeace className="cursor-pointer" />
+        </div>
       </footer>
     </Section>
   );
