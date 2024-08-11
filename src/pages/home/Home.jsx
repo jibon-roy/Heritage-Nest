@@ -15,7 +15,8 @@ export default function Home() {
         paragraph={
           " It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
         }
-        imagePosition={"top"}
+        imagePosition={"bottom"}
+        col
       />
       <DualSection
         heading={"Property Buying"}
@@ -27,6 +28,7 @@ export default function Home() {
         }
         imagePosition={"top"}
         rowReverse
+        col
       />
     </>
   );

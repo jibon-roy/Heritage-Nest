@@ -11,7 +11,10 @@ export default function ImageContainer({
       <img
         src={image1Url}
         alt="room-image"
-        className={`rounded-xl shadow-xl drop-shadow-2xl max-h-[452px] w-[80%] object-cover`}
+        className={`rounded-xl shadow-xl drop-shadow-2xl max-h-[452px] w-[80%] object-cover
+             ${imagePosition == "bottom" && ""} 
+            ${imagePosition == "top" && "mt-20"} 
+                `}
       />
 
       <img
@@ -19,7 +22,7 @@ export default function ImageContainer({
         alt="room-image"
         className={`absolute shadow-xl drop-shadow-2xl rounded-xl object-cover w-[80%] h-52 
             ${imagePosition == "bottom" && "-bottom-20 right-0"} 
-            ${imagePosition == "top" && "-bottom-20 right-0"} 
+            ${imagePosition == "top" && "-top-24 right-0"} 
 
         }
             `}
@@ -27,9 +30,17 @@ export default function ImageContainer({
 
       {/* Play Button */}
       <div
-        className="absolute flex justify-center items-center rounded-full bg-blue-700 
-                      w-12 h-12 md:w-16 md:h-16 right-12 md:right-10 lg:right-[4.7rem] bottom-[6.3rem] md:bottom-24 
-                      hover:bg-blue-600 transition-colors duration-300"
+        className={`absolute flex justify-center items-center rounded-full bg-blue-700 
+                     md:w-16 md:h-16 w-12 h-12  hover:bg-blue-600 transition-colors duration-300
+                      ${
+                        imagePosition == "bottom" &&
+                        "right-12 md:right-10 lg:right-[4.7rem] bottom-[6.3rem] md:bottom-24 "
+                      }
+                      ${
+                        imagePosition == "top" &&
+                        "left-12 md:left-10 lg:left-[4.5rem] -top-6 md:-top-8 "
+                      }
+                      `}
       >
         <IoMdPlay className="text-2xl md:text-3xl text-white" />
       </div>
