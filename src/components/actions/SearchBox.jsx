@@ -27,22 +27,35 @@ const SearchBox = () => {
     "Indianapolis",
   ];
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const data = e.target;
+    const category = selectedTab;
+    const search = data.search.value;
+    const location = data.search.value;
+    const propertyType = data.search.value;
+    const budget = data.search.value;
+    console.log(category, search, location, propertyType, budget);
+  };
+
   return (
     <Section
-      sectionClass="relative bg-cover bg-center mb-44"
+      sectionClass="relative md:h-80 h-screen bg-cover bg-center mb-20 md:mb-44"
       style={{
         backgroundImage: `url(${second})`,
-        height: "300px",
       }}
     >
       <div className="absolute inset-0 bg-blue-700 bg-opacity-50"></div>
-      <div className=" mx-auto mt-0 px-2 md:px-10 lg:px-20">
-        <div className="bg-white container  shadow-lg rounded mx-auto w-4/5 p-6 absolute -bottom-28 -translate-x-1/2 left-1/2">
-          <div className="flex border-b border-gray-200">
+      <form
+        onSubmit={handleSearch}
+        className=" mx-auto mt-0 px-2 md:px-10 lg:px-20"
+      >
+        <div className="bg-white container h-fit shadow-lg rounded mx-auto w-4/5 p-6 absolute max-md:top-20 md:-bottom-28 -translate-x-1/2 left-1/2">
+          <div className="flex flex-wrap border-b border-gray-200">
             {["Buy", "Rent", "PG", "Plot", "Commercial"].map((tab) => (
-              <button
+              <div
                 key={tab}
-                className={`py-2 px-4 text-sm font-medium ${
+                className={`py-2 cursor-pointer px-4 text-sm font-medium ${
                   selectedTab === tab
                     ? "text-blue-700 border-b-2 border-blue-700"
                     : "text-gray-500"
@@ -50,26 +63,38 @@ const SearchBox = () => {
                 onClick={() => setSelectedTab(tab)}
               >
                 {tab}
-              </button>
+              </div>
             ))}
           </div>
           <div className="mt-4">
             <div className="relative">
-              <input
-                id="search"
-                autoComplete="name"
-                onFocus={() => setIsInputFocused(true)}
-                onBlur={() => setIsInputFocused(false)}
-                type="text"
-                className="w-full py-2 px-4  border border-gray-300  rounded-sm mb-4"
-              />
               <div
-                className={`absolute top-1/2 gap-2 text-gray-400 items-center -translate-y-5 left-4 flex transition-opacity duration-300 ${
+                className={`absolute top-1/2 left-4 flex items-center gap-2 text-gray-400 transition-opacity duration-300 ${
                   isInputFocused ? "opacity-0" : "opacity-100"
                 }`}
+                style={{ transform: "translateY(-80%)", pointerEvents: "none" }}
               >
                 <FaMagnifyingGlass /> Search Properties
               </div>
+              <input
+                id="search"
+                name="search"
+                autoComplete="name"
+                onFocus={() => setIsInputFocused(true)}
+                onBlur={(e) =>
+                  e.target.value.length > 0
+                    ? setIsInputFocused(true)
+                    : setIsInputFocused(false)
+                }
+                onChange={(e) =>
+                  e.target.value.length > 0
+                    ? setIsInputFocused(true)
+                    : setIsInputFocused(false)
+                }
+                type="text"
+                className="w-full py-2 px-4 border border-gray-300 rounded-sm mb-4"
+                style={{ zIndex: 10 }}
+              />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <div>
@@ -84,6 +109,7 @@ const SearchBox = () => {
                 </label>
                 <select
                   id="location"
+                  name="location"
                   className="p-2  w-full bg-blue-50  rounded-sm"
                 >
                   <option value="">Your Location</option>
@@ -106,6 +132,7 @@ const SearchBox = () => {
                 </label>
                 <select
                   id="propertyType"
+                  name="propertyType"
                   className="p-2  w-full bg-blue-50  rounded-sm"
                 >
                   <option value={""}>Property Type</option>
@@ -125,6 +152,7 @@ const SearchBox = () => {
                 </label>
                 <select
                   id="budget"
+                  name="budget"
                   className="p-2  w-full bg-blue-50  rounded-sm"
                 >
                   <option value={""}>Budget</option>
@@ -133,13 +161,16 @@ const SearchBox = () => {
                 </select>
               </div>
             </div>
-            <button className="w-full flex items-center justify-center gap-2 bg-blue-700 text-white py-2 rounded-sm hover:bg-blue-600">
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2 bg-blue-700 text-white py-2 rounded-sm hover:bg-blue-600"
+            >
               <FaMagnifyingGlass />
               Find Property
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </Section>
   );
 };
