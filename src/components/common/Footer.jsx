@@ -5,7 +5,7 @@ import { PiHandPeace } from "react-icons/pi";
 
 export default function Footer() {
   return (
-    <Section className={"bg-blue-50"}>
+    <Section sectionClass={"bg-blue-50"}>
       <footer className="footer  text-base-content py-16">
         <aside>
           <Logo />

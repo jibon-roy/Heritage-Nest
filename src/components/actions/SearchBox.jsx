@@ -1,0 +1,147 @@
+import { useState } from "react";
+import second from "../../assets/images/bg3.jpg";
+import Section from "../design/Section";
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import { MdOutlineLocationOn } from "react-icons/md";
+import { BiHomeCircle } from "react-icons/bi";
+import { AiFillDollarCircle } from "react-icons/ai";
+
+const SearchBox = () => {
+  const [selectedTab, setSelectedTab] = useState("Buy");
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const cities = [
+    "New York",
+    "Los Angeles",
+    "Chicago",
+    "Houston",
+    "Phoenix",
+    "Philadelphia",
+    "San Antonio",
+    "San Diego",
+    "Dallas",
+    "San Jose",
+    "Austin",
+    "Jacksonville",
+    "San Francisco",
+    "Columbus",
+    "Indianapolis",
+  ];
+
+  return (
+    <Section
+      sectionClass="relative bg-cover bg-center mb-44"
+      style={{
+        backgroundImage: `url(${second})`,
+        height: "300px",
+      }}
+    >
+      <div className="absolute inset-0 bg-blue-700 bg-opacity-50"></div>
+      <div className=" mx-auto mt-0 px-2 md:px-10 lg:px-20">
+        <div className="bg-white container  shadow-lg rounded mx-auto w-4/5 p-6 absolute -bottom-28 -translate-x-1/2 left-1/2">
+          <div className="flex border-b border-gray-200">
+            {["Buy", "Rent", "PG", "Plot", "Commercial"].map((tab) => (
+              <button
+                key={tab}
+                className={`py-2 px-4 text-sm font-medium ${
+                  selectedTab === tab
+                    ? "text-blue-700 border-b-2 border-blue-700"
+                    : "text-gray-500"
+                } hover:text-blue-700`}
+                onClick={() => setSelectedTab(tab)}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+          <div className="mt-4">
+            <div className="relative">
+              <input
+                id="search"
+                autoComplete="name"
+                onFocus={() => setIsInputFocused(true)}
+                onBlur={() => setIsInputFocused(false)}
+                type="text"
+                className="w-full py-2 px-4  border border-gray-300  rounded-sm mb-4"
+              />
+              <div
+                className={`absolute top-1/2 gap-2 text-gray-400 items-center -translate-y-5 left-4 flex transition-opacity duration-300 ${
+                  isInputFocused ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                <FaMagnifyingGlass /> Search Properties
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div>
+                <label
+                  htmlFor="location"
+                  className="flex mb-3 justify-start text-black font-semibold gap-2 items-center"
+                >
+                  <span className="text-orange-500 text-xl">
+                    <MdOutlineLocationOn />
+                  </span>
+                  Your Location
+                </label>
+                <select
+                  id="location"
+                  className="p-2  w-full bg-blue-50  rounded-sm"
+                >
+                  <option value="">Your Location</option>
+                  {cities.map((city, index) => (
+                    <option key={index} value={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label
+                  htmlFor="propertyType"
+                  className="flex mb-3 justify-start text-black font-semibold gap-2 items-center"
+                >
+                  <span className="text-orange-500 text-xl">
+                    <BiHomeCircle />
+                  </span>
+                  Property Type
+                </label>
+                <select
+                  id="propertyType"
+                  className="p-2  w-full bg-blue-50  rounded-sm"
+                >
+                  <option value={""}>Property Type</option>
+                  <option value={""}>Type 1</option>
+                  <option value={""}>Type 2</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  htmlFor="budget"
+                  className="flex mb-3 justify-start text-black font-semibold gap-2 items-center"
+                >
+                  <span className="text-orange-500 text-xl">
+                    <AiFillDollarCircle />
+                  </span>
+                  Budget
+                </label>
+                <select
+                  id="budget"
+                  className="p-2  w-full bg-blue-50  rounded-sm"
+                >
+                  <option value={""}>Budget</option>
+                  <option value={""}>Budget 1</option>
+                  <option value={""}>Budget 2</option>
+                </select>
+              </div>
+            </div>
+            <button className="w-full flex items-center justify-center gap-2 bg-blue-700 text-white py-2 rounded-sm hover:bg-blue-600">
+              <FaMagnifyingGlass />
+              Find Property
+            </button>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+};
+
+export default SearchBox;
