@@ -45,31 +45,41 @@ const Testimonial = ({
             type="radio"
             name={`rating-${id}`}
             className="mask mask-star bg-orange-300"
-            checked={rating == 1}
+            disabled
+            defaultChecked={rating == 1}
+            readOnly
           />
           <input
             type="radio"
             name="rating-2"
             className="mask mask-star bg-orange-300"
-            checked={rating == 2}
+            disabled
+            defaultChecked={rating == 2}
+            readOnly
           />
           <input
             type="radio"
             name="rating-2"
             className="mask mask-star bg-orange-300"
-            checked={rating == 3}
+            disabled
+            defaultChecked={rating == 3}
+            readOnly
           />
           <input
             type="radio"
             name="rating-2"
             className="mask mask-star bg-orange-300"
-            checked={rating == 4}
+            disabled
+            defaultChecked={rating == 4}
+            readOnly
           />
           <input
             type="radio"
             name="rating-2"
             className="mask mask-star bg-orange-300"
-            checked={rating == 5}
+            disabled
+            defaultChecked={rating == 5}
+            readOnly
           />
         </div>
         <p className="max-w-lg mt-8 text-gray-700 text-center">{review}</p>

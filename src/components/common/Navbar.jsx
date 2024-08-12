@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../design/Logo";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -38,9 +39,9 @@ export default function Navbar() {
               <div className="mx-2  px-2">Services</div>
             </div>
             <div className="mx-2 flex-1 flex justify-center px-2">
-              <NavLink to={"/"}>
+              <Link  to={"/"}>
                 <Logo />
-              </NavLink>
+              </Link>
             </div>
             <div className="hidden lg:flex justify-end">
               <div className="mx-2  px-2">Manage Rentals</div>
