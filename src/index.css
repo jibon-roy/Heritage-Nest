@@ -37,6 +37,10 @@ select {
   position: relative;
 }
 
+/* .rounded {
+  background: #000;
+} */
+
 .active::before {
   content: "";
   width: 80%;
