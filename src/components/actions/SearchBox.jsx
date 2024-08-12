@@ -45,7 +45,7 @@ const SearchBox = () => {
         backgroundImage: `url(${second})`,
       }}
     >
-      <div className="absolute inset-0 bg-blue-700 bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-gray-700 bg-opacity-60"></div>
       <form
         onSubmit={handleSearch}
         className=" mx-auto mt-0 px-2 md:px-10 lg:px-20"
