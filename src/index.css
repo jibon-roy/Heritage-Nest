@@ -7,3 +7,21 @@
 .text-shadow {
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35);
 }
+
+.swiper-button-prev {
+  width: 40px !important;
+  height: 40px !important;
+}
+.swiper-button-next {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+@media only screen and (min-width: 900px) {
+  .swiper-button-prev {
+    left: -20px !important;
+  }
+  .swiper-button-next {
+    right: -20px !important;
+  }
+}
