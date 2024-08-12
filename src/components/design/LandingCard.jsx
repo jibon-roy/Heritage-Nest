@@ -2,7 +2,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 
 const LandingCard = () => {
   return (
-    <div className="bg-[#F9FAFB] p-4 flex w-fit gap-4 rounded-lg shadow-md">
+    <div className="bg-[#F9FAFB] hover:bg-orange-50 transition p-4 flex w-fit gap-4 rounded-lg shadow-md">
       <div>
         <img
           src="https://via.placeholder.com/150"

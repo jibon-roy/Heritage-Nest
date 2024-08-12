@@ -7,6 +7,7 @@ import Services from "../../pages/services/Services";
 import ManageRentals from "../../pages/manage_rentals/ManageRentals";
 import Buy from "../../pages/buy/Buy";
 import SignIn from "../../pages/signin/SignIn";
+import SearchDetails from "../../pages/SearchDetails/SearchDetails";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
+      },
+      {
+        path: "/search",
+        element: <SearchDetails />,
       },
       {
         path: "/manage-rentals",

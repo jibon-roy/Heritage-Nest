@@ -1,5 +1,4 @@
 import SearchBox from "../../components/actions/SearchBox";
-import LandingCard from "../../components/design/LandingCard";
 import TestimonialSection from "../../components/design/Testimonial";
 import NewListedProperties from "./NewListedProperties";
 import PopularCard from "./PopularCard";
@@ -13,7 +12,6 @@ export default function Buy() {
       <PopularCard />
       <NewListedProperties />
       <TestimonialSection />
-      <LandingCard />
     </>
   );
 }

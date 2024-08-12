@@ -5,10 +5,13 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { BiHomeCircle } from "react-icons/bi";
 import { AiFillDollarCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const SearchBox = () => {
   const [selectedTab, setSelectedTab] = useState("Buy");
   const [isInputFocused, setIsInputFocused] = useState(false);
+  // const [search, setSearch] = useState({});
+  const navigate = useNavigate();
   const cities = [
     "New York",
     "Los Angeles",
@@ -32,10 +35,20 @@ const SearchBox = () => {
     const data = e.target;
     const category = selectedTab;
     const search = data.search.value;
-    const location = data.search.value;
-    const propertyType = data.search.value;
-    const budget = data.search.value;
-    console.log(category, search, location, propertyType, budget);
+    const location = data.location.value;
+    const propertyType = data.propertyType.value;
+    const budget = data.budget.value;
+    // const searchedData = {
+    //   category,
+    //   search,
+    //   location,
+    //   propertyType,
+    //   budget,
+    // };
+    navigate(
+      `/search?category=${category}&search=${search}&location=${location}&propertyType=${propertyType}&budget=${budget}`
+    );
+    // setSearch(searchedData);
   };
 
   return (
