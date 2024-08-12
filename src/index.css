@@ -17,6 +17,22 @@
   height: 40px !important;
 }
 
+select {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  background: url("data:image/svg+xml;utf8,<svg width='30' height='30' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M18.5303 9.46967C18.8232 9.76256 18.8232 10.2374 18.5303 10.5303L12.5303 16.5303C12.2374 16.8232 11.7626 16.8232 11.4697 16.5303L5.46967 10.5303C5.17678 10.2374 5.17678 9.76256 5.46967 9.46967C5.76256 9.17678 6.23744 9.17678 6.53033 9.46967L12 14.9393L17.4697 9.46967C17.7626 9.17678 18.2374 9.17678 18.5303 9.46967Z' fill='%23f57f00'/></svg>")
+    no-repeat;
+  background-color: #ccc;
+  background-size: 16px;
+  background-position: calc(100% - 20px) 12px;
+  background-repeat: no-repeat;
+}
+
 @media only screen and (min-width: 900px) {
   .swiper-button-prev {
     left: -20px !important;

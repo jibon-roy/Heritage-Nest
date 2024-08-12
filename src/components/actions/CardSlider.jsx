@@ -27,7 +27,7 @@ export default function CardSlider({ data }) {
       nextEl: ".swiper-button-next",
     },
     autoplay: {
-      delay: 2000,
+      delay: 3000,
       disableOnInteraction: false,
     },
     loop: true,
