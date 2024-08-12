@@ -4,6 +4,7 @@ import Section from "../../components/design/Section";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import NewProjectTab from "../../components/design/tabs/NewProjectTab.jsx";
+import PreLaunchTab from "../../components/design/tabs/PreLaunchTab.jsx";
 
 export default function SearchDetails() {
   const [activeTab, setActiveTab] = useState("properties");
@@ -26,7 +27,11 @@ export default function SearchDetails() {
           </div>
         );
       case "pre-launch":
-        return <div>Content for Pre Launch Offer</div>;
+        return (
+          <div>
+            <PreLaunchTab />
+          </div>
+        );
       default:
         return <div>Select a tab</div>;
     }
