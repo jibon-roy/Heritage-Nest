@@ -4,7 +4,7 @@ import Logo from "../design/Logo";
 export default function Navbar() {
   return (
     <>
-      <div className="drawer">
+      <div className="drawer z-50">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content bg-blue-50 flex flex-col">
           {/* Navbar */}
