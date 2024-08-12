@@ -50,7 +50,7 @@ const SearchBox = () => {
         onSubmit={handleSearch}
         className=" mx-auto mt-0 px-2 md:px-10 lg:px-20"
       >
-        <div className="bg-white container h-fit shadow-lg rounded mx-auto w-4/5 p-6 absolute max-md:top-20 md:-bottom-28 -translate-x-1/2 left-1/2">
+        <div className="bg-white container h-fit shadow-lg rounded mx-auto w-4/5 2xl:w-[70%] p-6 absolute max-md:top-20 md:-bottom-28 -translate-x-1/2 left-1/2">
           <div className="flex flex-wrap border-b border-gray-200">
             {["Buy", "Rent", "PG", "Plot", "Commercial"].map((tab) => (
               <div
