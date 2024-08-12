@@ -3,6 +3,7 @@ import { useState } from "react";
 import Section from "../../components/design/Section";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
+import NewProjectTab from "../../components/design/tabs/NewProjectTab.jsx";
 
 export default function SearchDetails() {
   const [activeTab, setActiveTab] = useState("properties");
@@ -19,7 +20,11 @@ export default function SearchDetails() {
           </div>
         );
       case "new-project":
-        return <div>Content for New Project</div>;
+        return (
+          <div>
+            <NewProjectTab />
+          </div>
+        );
       case "pre-launch":
         return <div>Content for Pre Launch Offer</div>;
       default:
