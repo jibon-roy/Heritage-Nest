@@ -38,7 +38,7 @@ const LandingCard = () => {
               <img
                 src="https://via.placeholder.com/20"
                 alt="Icon"
-                className="mr-2"
+                className="mr-2 w-10 h-10"
               />
               <span>Total Area</span>
               <span className="font-semibold">891 sqft</span>
@@ -47,7 +47,7 @@ const LandingCard = () => {
               <img
                 src="https://via.placeholder.com/20"
                 alt="Icon"
-                className="mr-2"
+                className="mr-2 w-10 h-10"
               />
               <span>Status</span>
               <span className="font-semibold">Ready to move</span>
@@ -56,7 +56,7 @@ const LandingCard = () => {
               <img
                 src="https://via.placeholder.com/20"
                 alt="Icon"
-                className="mr-2"
+                className="mr-2 w-10 h-10"
               />
               <span>Total Area</span>
               <span className="font-semibold">891 sqft</span>

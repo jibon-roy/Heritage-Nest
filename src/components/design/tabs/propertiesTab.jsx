@@ -1,7 +1,11 @@
+import LandingCard from "../LandingCard";
+
 export default function PropertiesTab() {
   return (
     <>
-      <div>Properties</div>
+      <div>
+        <LandingCard />
+      </div>
     </>
   );
 }
