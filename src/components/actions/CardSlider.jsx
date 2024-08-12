@@ -35,7 +35,7 @@ export default function CardSlider({ data }) {
   };
 
   return (
-    <div className="relative py-20">
+    <div className="relative pb-20">
       <Swiper {...swiperParams}>
         {data.map((item, index) => (
           <SwiperSlide key={index}>
