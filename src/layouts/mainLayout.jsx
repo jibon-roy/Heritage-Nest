@@ -12,7 +12,7 @@ export default function MainLayout() {
 
     if (scrollContainerRef.current) {
       scrollbar = SmoothScrollbar.init(scrollContainerRef.current, {
-        damping: 0.1,
+        damping: 0.08,
       });
     }
 
@@ -24,13 +24,13 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <main
+    <div
       ref={scrollContainerRef}
       style={{ height: "100vh", overflow: "hidden" }}
     >
       <Navbar />
       <Outlet />
       <Footer />
-    </main>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Logo from "../design/Logo";
 
 export default function Navbar() {
@@ -30,7 +31,9 @@ export default function Navbar() {
               </label>
             </div>
             <div className="hidden lg:flex">
-              <div className="mx-2  px-2">Buy</div>
+              <NavLink to={"/buy"}>
+                <div className="mx-2  px-2">Buy</div>
+              </NavLink>
               <div className="mx-2  px-2">Sell</div>
               <div className="mx-2  px-2">Services</div>
             </div>

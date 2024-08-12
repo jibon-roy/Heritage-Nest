@@ -5,19 +5,21 @@ import Home from "../../pages/home/Home";
 import Sell from "../../pages/sell/Sell";
 import Services from "../../pages/services/Services";
 import ManageRentals from "../../pages/manage_rentals/ManageRentals";
+import Buy from "../../pages/buy/Buy";
+import SignIn from "../../pages/signin/SignIn";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
         path: "/buy",
-        element: <Home />,
+        element: <Buy />,
       },
       {
         path: "/sell",
@@ -39,8 +41,6 @@ const router = createBrowserRouter([
   },
   {
     path: "/sign-in",
-    element: <DashboardLayout />,
+    element: <SignIn />,
   },
 ]);
-
-export default router;
