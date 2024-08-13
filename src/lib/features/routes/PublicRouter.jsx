@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import useUserActions from "../../hooks/useUserActions";
+import Loading from "../../../components/common/Loading";
 
 export default function PublicRouter({ children }) {
   const { user, loading } = useUserActions();
@@ -13,7 +14,7 @@ export default function PublicRouter({ children }) {
   }, [loading]);
 
   if (!isUserLoaded) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (user) {

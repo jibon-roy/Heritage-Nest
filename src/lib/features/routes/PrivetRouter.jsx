@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
 import Error from "../../../pages/error/Error";
 import useUserActions from "../../hooks/useUserActions";
+import Loading from "../../../components/common/Loading";
 
 export default function PrivetRouter({ children }) {
-  const { user, loading } = useUserActions();
+  const { user } = useUserActions();
   const [isUserLoaded, setIsUserLoaded] = useState(false);
 
   useEffect(() => {
-    if (!loading) {
+    if (!user) {
       setIsUserLoaded(true);
     }
-  }, [loading]);
+  }, [user]);
 
   if (!isUserLoaded) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (user) {
     return <>{children}</>;
-  } else {
+  }
+
+  if (!user && !isUserLoaded) {
     return <Error />;
   }
 }

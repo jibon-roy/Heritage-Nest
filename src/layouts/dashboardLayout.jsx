@@ -5,7 +5,9 @@ export default function DashboardLayout() {
   return (
     <main className="flex gap-6">
       <DashboardNav />
-      <Outlet />
+      <div className="flex-1 mt-4">
+        <Outlet />
+      </div>
     </main>
   );
 }

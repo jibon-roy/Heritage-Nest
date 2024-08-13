@@ -1,22 +1,16 @@
-import { useState } from "react";
+// import { useState, useEffect } from "react";
 
 export default function useBackendUri() {
-  const [url, setUrl] = useState("");
+  // const [backendUri, setBackendUri] = useState(null);
+  const mode = import.meta.env.VITE_MODE;
 
-  // Set the URL on initial render
-  if (typeof window !== "undefined" && !url) {
-    const baseURL = window.location.origin;
-    setUrl(baseURL);
-  }
+  // const devURL = import.meta.env.VITE_DEV_URL;
+  // const prodURL = import.meta.env.VITE_PROD_URL;
 
-  const devURL = import.meta.env.VITE_DEV_URL;
-  const prodURL = import.meta.env.VITE_PROD_URL;
-
-  if (url === devURL) {
+  if (mode === "dev") {
     return import.meta.env.VITE_DEV_BACKEND_URI;
-  } else if (url === prodURL) {
+  }
+  if (mode === "prod") {
     return import.meta.env.VITE_PROD_BACKEND_URI;
   }
-
-  return null;
 }

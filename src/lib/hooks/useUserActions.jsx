@@ -17,7 +17,7 @@ export default function useUserActions() {
       if (user) {
         try {
           const idToken = await user.getIdToken();
-
+          const role = localStorage.getItem("role");
           // Update Redux store with user info and token
           dispatch(
             setUser({
@@ -27,6 +27,7 @@ export default function useUserActions() {
                 displayName: user.displayName,
                 photoURL: user.photoURL,
                 lastSignIn: user.metadata.lastSignInTime,
+                role: role,
               },
               userToken: idToken,
             })
@@ -39,6 +40,7 @@ export default function useUserActions() {
             displayName: user.displayName,
             photoURL: user.photoURL,
             lastSignIn: user.metadata.lastSignInTime,
+            role: role,
           });
           setToken(idToken);
         } catch (error) {
