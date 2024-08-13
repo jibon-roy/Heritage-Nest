@@ -13,6 +13,12 @@ import PropertyOwnerSignUp from "../../pages/SignUp/PropertyOwnerSignUp";
 import Error from "../../pages/error/Error";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import Dashboard from "../../pages/dashboard/Dashboard";
+import Users from "../../pages/dashboard/Users";
+import BiddingActivities from "../../pages/dashboard/BiddingActivities";
+import Properties from "../../pages/dashboard/Properties";
+import Settings from "../../pages/dashboard/Settings";
+import MyProperties from "../../pages/dashboard/MyProperties";
+import MyBids from "../../pages/dashboard/MyBids";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +63,34 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/users",
+        element: <Users />,
+      },
+      {
+        path: "/dashboard/add-property",
+        element: <Properties />,
+      },
+      {
+        path: "/dashboard/properties",
+        element: <Properties />,
+      },
+      {
+        path: "/dashboard/my-properties",
+        element: <MyProperties />,
+      },
+      {
+        path: "/dashboard/my-bids",
+        element: <MyBids />,
+      },
+      {
+        path: "/dashboard/bidding",
+        element: <BiddingActivities />,
+      },
+      {
+        path: "/dashboard/settings",
+        element: <Settings />,
       },
     ],
   },
