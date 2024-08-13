@@ -179,7 +179,7 @@ const SignIn = () => {
         <div className="w-full max-w-md bg-white shadow-md rounded-lg pt-4 p-8">
           <div className="text-2xl flex flex-col items-center justify-start font-bold mb-6">
             <Logo />
-            Login
+            Sign In
           </div>
           <form
             onSubmit={(e) => {
@@ -233,7 +233,7 @@ const SignIn = () => {
             </div>
             <button
               type="submit"
-              className="btn rounded bg-blue-600 text-white w-full"
+              className="btn rounded bg-blue-600 hover:bg-blue-500  text-white w-full"
             >
               Login
             </button>

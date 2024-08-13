@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "../design/Logo";
 import { Link } from "react-router-dom";
 import useUserActions from "../../lib/hooks/useUserActions";
+import UserDropdown from "../actions/UserDropDown";
 
 export default function Navbar() {
   const { user } = useUserActions();
@@ -50,9 +51,25 @@ export default function Navbar() {
               <NavLink to={"/manage-rentals"}>
                 <div className="mx-2  px-2">Manage Rentals</div>
               </NavLink>
-              <NavLink to={"/sign-up"}>
-                <div className="mx-2  px-2">Sign Up</div>
-              </NavLink>
+              {user && <UserDropdown />}
+              {!user && (
+                <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="m-1">
+                    Sign Up
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                  >
+                    <li>
+                      <NavLink to={"/sign-up"}>Sign Up</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/sign-in"}>Sign In</NavLink>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -65,11 +82,56 @@ export default function Navbar() {
           <ul className="menu bg-base-200 min-h-full w-[70%] p-4">
             {/* Sidebar content here */}
             <li>
-              <a>Sidebar Item 1</a>
+              <Link to={"/"}>
+                <Logo />
+              </Link>
+            </li>
+            <li className="">
+              <div>
+                <NavLink to={"/buy"}>Buy</NavLink>
+              </div>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <div>
+                <NavLink to={"/buy"}>Sell</NavLink>
+              </div>
             </li>
+            <li>
+              <div>
+                <NavLink to={"/buy"}>Services</NavLink>
+              </div>
+            </li>
+            {user && (
+              <>
+                <li>
+                  <div>
+                    <NavLink to={"/dashboard"}>Settings</NavLink>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <NavLink to={"/dashboard"}>Log Out</NavLink>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <NavLink to={"/dashboard"}>Sign Up</NavLink>
+                  </div>
+                </li>
+              </>
+            )}
+            {!user && (
+              <>
+                <li>
+                  <div>
+                    <NavLink to={"/sign-up"}>Sign Up</NavLink>
+                  </div>
+                </li>
+                <li>
+                  <NavLink to={"/sign-up"}>Sign In</NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

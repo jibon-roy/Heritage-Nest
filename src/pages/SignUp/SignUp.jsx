@@ -159,14 +159,14 @@ const SignUp = () => {
     return "";
   };
 
-  // Validate form inputs
+
   const validate = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = "Name is required";
     if (!formData.email) newErrors.email = "Email is required";
     if (!formData.password) newErrors.password = "Password is required";
     if (validatePassword(formData.password)) newErrors.password = validatePassword(formData.password);
-    // Additional validation logic can be added here
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -207,7 +207,7 @@ const SignUp = () => {
           <RiveComponent fit={Fit.Fill} alignment={Alignment.Center} />
         </div>
         <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-6">Register</h2>
+          <h2 className="text-2xl font-bold mb-6">Register as Bidder</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label
@@ -324,12 +324,6 @@ const SignUp = () => {
             >
               Register
             </button>
-            <p className="text-center text-sm">
-              Already have an account?{" "}
-              <Link to="/sign-in" className="text-blue-500 hover:underline">
-                Sign in.
-              </Link>
-            </p>
           </form>
           <button
             onClick={handleLoginWithGoogle}
@@ -338,6 +332,18 @@ const SignUp = () => {
             <FcGoogle />
             Login with Google
           </button>
+           <button
+             
+              className="btn mt-4 bg-blue-600 hover:bg-blue-500 text-white  border-none rounded w-full"
+            >
+             Became a Property Owner
+            </button>
+            <p className="text-center text-sm mt-4">
+              Already have an account?{" "}
+              <Link to="/sign-in" className="text-blue-500 hover:underline">
+                Sign in.
+              </Link>
+          </p>
         </div>
       </div>
     </div>
