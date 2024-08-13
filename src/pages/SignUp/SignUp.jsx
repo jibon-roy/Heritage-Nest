@@ -193,7 +193,7 @@ const PropertyOwnerSignUp = () => {
             "success",
             "Registration success. Please login.",
             "Welcome!",
-            "Sign in"
+            "Home"
           ).then(() => {
             navigate(location.state ? location.state : "/", {
               replace: true,

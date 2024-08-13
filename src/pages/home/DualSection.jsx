@@ -3,6 +3,7 @@ import Button from "../../components/actions/Button";
 import Flex from "../../components/design/Flex";
 import Heading from "../../components/design/Heading";
 import ImageContainer from "../../components/design/ImageContainer";
+import { Link } from "react-router-dom";
 
 export default function DualSection({
   image1Url,
@@ -34,10 +35,12 @@ export default function DualSection({
       <div className="lg:w-1/2 max-w-lg">
         <Heading heading={heading}>{head}</Heading>
         <p className="text-shadow mt-7 mb-10">{paragraph}</p>
-        <Button type="primary">
-          <HiMagnifyingGlass className="text-2xl" />
-          Find Property
-        </Button>
+        <Link to={"/buy"}>
+          <Button type="primary">
+            <HiMagnifyingGlass className="text-2xl" />
+            Find Property
+          </Button>
+        </Link>
       </div>
     </Flex>
   );

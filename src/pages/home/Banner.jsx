@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import bgVideo from "../../assets/bgVideo.mp4";
 import Button from "../../components/actions/Button";
 import { HiMagnifyingGlass } from "react-icons/hi2";
@@ -32,10 +33,12 @@ export default function Banner() {
             Seamlessly connecting you to the heartbeat of India’s prime
             properties.
           </p>
-          <Button type={"secondary"} center={true} className={"gap-2 "}>
-            <HiMagnifyingGlass />
-            Find Property
-          </Button>
+          <Link to={"/buy"}>
+            <Button type={"secondary"} center={true} className={"gap-2 "}>
+              <HiMagnifyingGlass />
+              Find Property
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
