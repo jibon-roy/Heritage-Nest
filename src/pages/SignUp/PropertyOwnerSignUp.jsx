@@ -12,10 +12,13 @@ import { FaLeftLong } from "react-icons/fa6";
 import useUserActions from "../../lib/hooks/useUserActions";
 import { useNavigate } from "react-router-dom";
 import { swalAlert } from "../../components/actions/SwalAlert";
+import { useSelector } from "react-redux";
+import Loading from "../../components/common/Loading";
 
 const PropertyOwnerSignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [loadRegister, setLoadRegister] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +27,7 @@ const PropertyOwnerSignUp = () => {
     gender: "",
     role: "property_owner",
   });
-
+  const { success } = useSelector((state) => state.auth);
   const inputRef = useRef(null);
   const inputRef2 = useRef(null);
 
@@ -171,7 +174,7 @@ const PropertyOwnerSignUp = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validate() && trigSuccessInput) {
@@ -179,24 +182,33 @@ const PropertyOwnerSignUp = () => {
     } else if (trigFailInput) {
       trigFailInput.fire();
     }
+
     if (validate()) {
-      dispatch(registerUser(formData))
-        .then(() => {
-          if (user) {
-            logOut();
-            navigate("/sign-in", {
-              replace: location.state ? location.state : "/sign-in",
+      setLoadRegister(true);
+      try {
+        await dispatch(registerUser(formData)).unwrap();
+        setLoadRegister(false);
+        if (success) {
+          swalAlert(
+            "success",
+            "Registration success. Please login.",
+            "Welcome!",
+            "Sign in"
+          ).then(() => {
+            navigate(location.state ? location.state : "/", {
+              replace: true,
             });
-          }
-        })
-        .catch((err) => {
-          swalAlert("success", err.message, "Opps!");
-        });
+          });
+        }
+      } catch (err) {
+        swalAlert("error", err.message, "Oops!");
+      }
     }
   };
 
   return (
     <div className="flex relative pb-20 pt-0 p-4 min-h-screen justify-center bg-[#D6E2EA]">
+      <Loading className={loadRegister ? "block" : "hidden"} />
       <div className="absolute flex items-center gap-2 border border-black py-1 px-3 rounded top-5  md:top-10 md:left-10 font-semibold">
         <FaLeftLong />
         <Link to={"/"}>Back to Home</Link>
@@ -207,7 +219,7 @@ const PropertyOwnerSignUp = () => {
         </div>
         <div className="w-full max-w-2xl bg-white shadow-md rounded-lg p-8">
           <h2 className="text-2xl font-bold text-center mb-6">
-            Register as Property Owner
+            Property Owner Sign Up Form
           </h2>
           <form
             onSubmit={handleSubmit}

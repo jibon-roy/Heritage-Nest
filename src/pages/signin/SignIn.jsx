@@ -14,9 +14,11 @@ import {
 } from "../../lib/features/auth/authActions";
 import useUserActions from "../../lib/hooks/useUserActions";
 import { useEffect } from "react";
+import Loading from "../../components/common/Loading";
 
 const SignIn = () => {
   const { user, logOut } = useUserActions();
+  const [logining, setLogining] = useState();
 
   useEffect(() => {
     let timer;
@@ -95,6 +97,7 @@ const SignIn = () => {
   };
 
   const handleLogin = async () => {
+    setLogining(true);
     // Basic validation
     let hasError = false;
     if (!email) {
@@ -126,20 +129,21 @@ const SignIn = () => {
               navigate("/", { replace: location.state ? location.state : "/" });
           });
       } catch (error) {
-        console.error("Login error:", error);
+        if (error) setLogining(false);
       }
     }
   };
 
   const handleLoginWithGoogle = () => {
-    console.log("working");
+    setLogining(true);
+    // console.log("working");
     try {
       dispatch(loginUserWithGoogle()).then((user) => {
         if (user)
           navigate("/", { replace: location.state ? location.state : "/" });
       });
     } catch (error) {
-      console.log(error);
+      if (error) setLogining(false);
     }
   };
   const handleUsernameFocus = () => {
@@ -168,6 +172,7 @@ const SignIn = () => {
 
   return (
     <div className="flex pb-28 relative min-h-screen pt-0 p-4 justify-center  bg-[#D6E2EA]">
+      <Loading className={logining ? "block" : "hidden"} />
       <div className="absolute flex items-center gap-2 border border-black py-1 px-3 rounded top-10 left-10 font-semibold">
         <FaLeftLong />
         <Link to={"/"}>Back to Home</Link>

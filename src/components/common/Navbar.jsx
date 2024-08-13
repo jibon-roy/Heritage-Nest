@@ -62,10 +62,15 @@ export default function Navbar() {
                     className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
                   >
                     <li>
-                      <NavLink to={"/sign-up"}>Sign Up</NavLink>
+                      <NavLink to={"/sign-in"}>Sign In</NavLink>
                     </li>
                     <li>
-                      <NavLink to={"/sign-in"}>Sign In</NavLink>
+                      <NavLink to={"/sign-up"}>Builder Sign Up</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/property-owner-sign-up"}>
+                        Property Owner Sign Up
+                      </NavLink>
                     </li>
                   </ul>
                 </div>

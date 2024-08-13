@@ -43,11 +43,12 @@ const authSlice = createSlice({
         state.success = true;
         state.userInfo = action.payload.userInfo;
         state.userToken = action.payload.userToken;
+        swalAlert("success", "Registration success. Please login.", "Welcome!");
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        console.log("Registration error:", action.payload);
+        // console.log("Registration error:", action.payload);
         if (action.payload == "Firebase: Error (auth/email-already-in-use).") {
           swalAlert("error", "Email already exists.", "Opps!");
         }
@@ -71,7 +72,7 @@ const authSlice = createSlice({
         state.userInfo = action.payload.data;
         state.userToken = action.payload.userToken;
         // console.log("Login successful:", action.payload);
-        swalAlert("success", "Registration success. Please login.", "Welcome!");
+        swalAlert("success", "Login Successful.", "Welcome!");
       })
       .addCase(loginUserWithEmail.rejected, (state, action) => {
         state.loading = false;
