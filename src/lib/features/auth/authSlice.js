@@ -5,6 +5,7 @@ import {
   logOutUser,
   registerUser,
 } from "./authActions";
+import { swalAlert } from "../../../components/actions/SwalAlert";
 
 const initialState = {
   loading: false,
@@ -47,6 +48,19 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
         console.log("Registration error:", action.payload);
+        if (action.payload == "Firebase: Error (auth/email-already-in-use).") {
+          swalAlert("error", "Email already exists.", "Opps!");
+        }
+        if (
+          action.payload ==
+          "Firebase: Password should be at least 6 characters (auth/weak-password)."
+        ) {
+          swalAlert(
+            "error",
+            "Password should be at least 6 characters",
+            "Opps!"
+          );
+        }
       })
       .addCase(loginUserWithEmail.pending, (state) => {
         state.loading = true;
@@ -56,12 +70,14 @@ const authSlice = createSlice({
         state.loading = false;
         state.userInfo = action.payload.data;
         state.userToken = action.payload.userToken;
-        console.log("Login successful:", action.payload);
+        // console.log("Login successful:", action.payload);
+        swalAlert("success", "Registration success. Please login.", "Welcome!");
       })
       .addCase(loginUserWithEmail.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        console.log("Login error:", action.payload);
+        // console.log("Login error:", action.payload);
+        swalAlert("error", "Login Error.", "Opps!");
       })
       .addCase(loginUserWithGoogle.pending, (state) => {
         state.loading = true;
@@ -71,12 +87,14 @@ const authSlice = createSlice({
         state.loading = false;
         state.userInfo = action.payload.userInfo;
         state.userToken = action.payload.userToken;
-        console.log("Google login successful:", action.payload);
+        // console.log("Google login successful:", action.payload);
+        swalAlert("success", "Sign in successful.", "Welcome!");
       })
       .addCase(loginUserWithGoogle.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        console.log("Google login error:", action.payload);
+        // console.log("Google login error:", action.payload);
+        swalAlert("error", "Login Error.", "Opps!");
       })
       .addCase(logOutUser.fulfilled, (state) => {
         state.userInfo = null;

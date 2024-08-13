@@ -11,6 +11,8 @@ import {
 import { FaLeftLong } from "react-icons/fa6";
 import useUserActions from "../../lib/hooks/useUserActions";
 import { useNavigate } from "react-router-dom";
+import { swalAlert } from "../../components/actions/SwalAlert";
+
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -127,13 +129,35 @@ const SignUp = () => {
 
   const handleLoginWithGoogle = () => {
     dispatch(loginUserWithGoogle()).then((data) => {
-      if (data)
+      if (data) {
+          swalAlert('success',"Login Successful.", "Welcome")
         navigate("/", { replace: location.state ? location.state : "/" });
+      }
+
     });
   };
 
   // State for form errors
   const [errors, setErrors] = useState({});
+    const validatePassword = (password) => {
+    const minLength = 8;
+    if (password.length < minLength) {
+      return "Password must be at least 8 characters long.";
+    }
+    if (!/[A-Z]/.test(password)) {
+      return "Password must include one uppercase letter.";
+    }
+    if (!/[a-z]/.test(password)) {
+      return "Password must include one lowercase letter.";
+    }
+    if (!/\d/.test(password)) {
+      return "Password must include one number.";
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      return "Password must include one special character.";
+    }
+    return "";
+  };
 
   // Validate form inputs
   const validate = () => {
@@ -141,6 +165,7 @@ const SignUp = () => {
     if (!formData.name) newErrors.name = "Name is required";
     if (!formData.email) newErrors.email = "Email is required";
     if (!formData.password) newErrors.password = "Password is required";
+    if (validatePassword(formData.password)) newErrors.password = validatePassword(formData.password);
     // Additional validation logic can be added here
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -156,15 +181,18 @@ const SignUp = () => {
       trigFailInput.fire();
     }
     if (validate()) {
-      dispatch(registerUser(formData)).then((data) => {
-        if (data)
+      dispatch(registerUser(formData)).then(() => {
+
           if (user) {
             logOut();
+            navigate("/sign-in", {
+            replace: location.state ? location.state : "/sign-in",
+          });
           }
-        navigate("/sign-in", {
-          replace: location.state ? location.state : "/sign-in",
+      })
+        .catch(err => {
+           swalAlert('success',err.message, "Opps!")
         });
-      });
     }
   };
 

@@ -20,7 +20,7 @@ export const registerUser = createAsyncThunk(
         auth,
         email,
         password
-      );
+      )
       const user = userCredential.user;
 
       // Send user details to backend
@@ -45,10 +45,10 @@ export const registerUser = createAsyncThunk(
       const tokenFromBackend = data.userToken;
       localStorage.setItem("userToken", tokenFromBackend);
 
-      // Retrieve token from localStorage for comparison
+      
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
-      // Verify tokens match
+ 
       if (tokenFromBackend !== tokenFromLocalStorage) {
         throw new Error("Token mismatch error.");
       }
@@ -85,10 +85,10 @@ export const loginUserWithGoogle = createAsyncThunk(
       const tokenFromBackend = data.userToken;
       localStorage.setItem("userToken", tokenFromBackend);
 
-      // Retrieve token from localStorage for comparison
+      
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
-      // Verify tokens match
+    
       if (tokenFromBackend !== tokenFromLocalStorage) {
         throw new Error("Token mismatch error.");
       }
@@ -129,10 +129,10 @@ export const loginUserWithEmail = createAsyncThunk(
       const tokenFromBackend = data.userToken;
       localStorage.setItem("userToken", tokenFromBackend);
 
-      // Retrieve token from localStorage for comparison
+    
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
-      // Verify tokens match
+   
       if (tokenFromBackend !== tokenFromLocalStorage) {
         throw new Error("Token mismatch error.");
       }
