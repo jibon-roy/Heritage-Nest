@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { FaRightLeft } from "react-icons/fa6";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useUserActions from "../../lib/hooks/useUserActions";
+import { FaAngleRight } from "react-icons/fa";
 
 export default function DashboardNav() {
   const dashboardRoutes = [
@@ -13,27 +14,28 @@ export default function DashboardNav() {
     { path: "/dashboard/my-bids", label: "My Bids" },
     { path: "/dashboard/bidding", label: "Bidding Activities" },
     { path: "/dashboard/settings", label: "Settings" },
+    { path: "/", label: "Home" },
   ];
-
+  const { logOut } = useUserActions();
   const location = useLocation();
   const path = location.pathname.split("/");
   //   console.log(path);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
   };
 
   return (
     <div
-      className={`relative w-64 transition-all bg-blue-50 min-h-screen p-5 ${
+      className={`relative w-64 z-40 transition-all bg-blue-50 min-h-screen p-5 ${
         open ? "-ml-64" : "ml-0"
       }`}
     >
       <button
         onClick={handleOpen}
-        className="absolute -right-8 top-0 bg-orange-200 p-2"
+        className="absolute rounded-r-full z-30 transition-all -right-6 top-1/2 -translate-y-1/2 drop-shadow-md hover:bg-orange-300 bg-orange-200 py-4 px-1"
       >
-        <FaRightLeft />
+        <FaAngleRight />
       </button>
       <h1 className="text-2xl font-semibold px-4 mb-6">Dashboard</h1>
       <ul>
@@ -52,6 +54,14 @@ export default function DashboardNav() {
             </Link>
           </li>
         ))}
+        <li>
+          <div
+            onClick={logOut}
+            className={`block py-2 px-4 my-2 font-medium rounded hover:bg-blue-200`}
+          >
+            Sign out
+          </div>
+        </li>
       </ul>
     </div>
   );
