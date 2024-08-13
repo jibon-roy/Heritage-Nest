@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../layouts/mainLayout";
-import DashboardLayout from "../../layouts/dashboardLayout";
 import Home from "../../pages/home/Home";
 import Sell from "../../pages/sell/Sell";
 import Services from "../../pages/services/Services";
@@ -11,11 +10,15 @@ import SearchDetails from "../../pages/SearchDetails/SearchDetails";
 import PropertyDetails from "../../pages/propertyDetails/PropertyDetails";
 import SignUp from "../../pages/SignUp/SignUp";
 import PropertyOwnerSignUp from "../../pages/SignUp/PropertyOwnerSignUp";
+import Error from "../../pages/error/Error";
+import DashboardLayout from "../../layouts/DashboardLayout";
+import Dashboard from "../../pages/dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -50,6 +53,12 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+    ],
   },
   {
     path: "/sign-in",
