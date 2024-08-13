@@ -57,7 +57,7 @@ export default function DashboardNav() {
         <li>
           <div
             onClick={logOut}
-            className={`block py-2 px-4 my-2 font-medium rounded hover:bg-blue-200`}
+            className={`block cursor-pointer py-2 px-4 my-2 font-medium rounded hover:bg-blue-200`}
           >
             Sign out
           </div>

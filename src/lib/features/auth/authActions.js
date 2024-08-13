@@ -44,7 +44,9 @@ export const registerUser = createAsyncThunk(
       );
 
       const tokenFromBackend = data.userToken;
+      const userRole = data.userInfo.role;
       localStorage.setItem("userToken", tokenFromBackend);
+      localStorage.setItem("role", userRole);
 
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
@@ -82,7 +84,9 @@ export const loginUserWithGoogle = createAsyncThunk(
       });
 
       const tokenFromBackend = data.userToken;
+      const userRole = data.userInfo.role;
       localStorage.setItem("userToken", tokenFromBackend);
+      localStorage.setItem("role", userRole);
 
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
@@ -114,17 +118,18 @@ export const loginUserWithEmail = createAsyncThunk(
       );
       const user = userCredential.user;
 
-      // Optionally, you can get a token from Firebase if needed
       const idToken = await user.getIdToken();
 
-      // Optionally, send the Firebase token to your backend
-      const { data } = await axiosPublic.post(
-        `/api/v1/user/login`,
-        { email, password, idToken } // Send Firebase token to backend
-      );
+      const { data } = await axiosPublic.post(`/api/v1/user/login`, {
+        email,
+        password,
+        idToken,
+      });
 
       const tokenFromBackend = data.userToken;
+      const userRole = data.userInfo.role;
       localStorage.setItem("userToken", tokenFromBackend);
+      localStorage.setItem("role", userRole);
 
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
@@ -150,6 +155,7 @@ export const logOutUser = createAsyncThunk(
       await signOut(auth);
       dispatch(logout());
       localStorage.removeItem("userToken");
+      localStorage.removeItem("role");
     } catch (error) {
       console.error("Error signing out:", error);
       throw error;

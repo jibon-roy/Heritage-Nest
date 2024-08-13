@@ -19,6 +19,8 @@ import Properties from "../../pages/dashboard/Properties";
 import Settings from "../../pages/dashboard/Settings";
 import MyProperties from "../../pages/dashboard/MyProperties";
 import MyBids from "../../pages/dashboard/MyBids";
+import PrivetRouter from "../features/routes/PrivetRouter";
+import PublicRouter from "../features/routes/PublicRouter";
 
 export const router = createBrowserRouter([
   {
@@ -58,7 +60,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivetRouter>
+        <DashboardLayout />
+      </PrivetRouter>
+    ),
     children: [
       {
         index: true,
@@ -96,14 +102,26 @@ export const router = createBrowserRouter([
   },
   {
     path: "/sign-in",
-    element: <SignIn />,
+    element: (
+      <PublicRouter>
+        <SignIn />
+      </PublicRouter>
+    ),
   },
   {
     path: "/sign-up",
-    element: <SignUp />,
+    element: (
+      <PublicRouter>
+        <SignUp />
+      </PublicRouter>
+    ),
   },
   {
     path: "/property-owner-sign-up",
-    element: <PropertyOwnerSignUp />,
+    element: (
+      <PublicRouter>
+        <PropertyOwnerSignUp />
+      </PublicRouter>
+    ),
   },
 ]);
