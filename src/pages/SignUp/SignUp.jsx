@@ -137,7 +137,6 @@ const SignUp = () => {
     }
     if (validate()) {
       dispatch(registerUser(formData));
-      // console.log(formData);
     }
   };
 

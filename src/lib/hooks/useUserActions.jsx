@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
-// import { setUser } from "../../features/auth/authSlice";
-import { logOutUser } from "../features/auth/authActions";
-import { auth } from "../lib/firebase";
+import { auth } from "../firebase/firebase";
 import { setUser } from "../features/auth/authSlice";
+import { logOutUser } from "../features/auth/authActions";
+// import { setUser } from "../../features/auth/authSlice";
 
 export default function useUserActions() {
   const [user, setUserState] = useState(null);

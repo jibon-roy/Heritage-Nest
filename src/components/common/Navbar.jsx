@@ -1,8 +1,11 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../design/Logo";
 import { Link } from "react-router-dom";
+import useUserActions from "../../lib/hooks/useUserActions";
 
 export default function Navbar() {
+  const { user } = useUserActions();
+  console.log(user);
   return (
     <>
       <div className="drawer z-50">
@@ -39,13 +42,17 @@ export default function Navbar() {
               <div className="mx-2  px-2">Services</div>
             </div>
             <div className="mx-2 flex-1 flex justify-center px-2">
-              <Link  to={"/"}>
+              <Link to={"/"}>
                 <Logo />
               </Link>
             </div>
             <div className="hidden lg:flex justify-end">
-              <div className="mx-2  px-2">Manage Rentals</div>
-              <div className="mx-2  px-2">Sign Up</div>
+              <NavLink to={"/manage-rentals"}>
+                <div className="mx-2  px-2">Manage Rentals</div>
+              </NavLink>
+              <NavLink to={"/sign-up"}>
+                <div className="mx-2  px-2">Sign Up</div>
+              </NavLink>
             </div>
           </div>
         </div>
