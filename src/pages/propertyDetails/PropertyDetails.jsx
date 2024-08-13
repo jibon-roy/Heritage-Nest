@@ -144,7 +144,7 @@ const PropertyDetails = () => {
                       borderRadius: "50%",
                       backgroundColor: "rgb(234, 88, 12)",
                     }}
-                    className="flex items-center justify-center"
+                    className="flex items-center outline-none justify-center"
                   />
                 );
               }}

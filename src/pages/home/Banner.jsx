@@ -6,7 +6,7 @@ export default function Banner() {
     <div className="relative h-screen shadow-lg drop-shadow-lg lg:max-h-[500px]">
       {/* Background Video */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute select-none top-0 left-0 w-full h-full object-cover"
         autoPlay
         muted
         loop

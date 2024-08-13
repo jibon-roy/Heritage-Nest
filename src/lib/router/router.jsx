@@ -9,6 +9,7 @@ import Buy from "../../pages/buy/Buy";
 import SignIn from "../../pages/signin/SignIn";
 import SearchDetails from "../../pages/SearchDetails/SearchDetails";
 import PropertyDetails from "../../pages/propertyDetails/PropertyDetails";
+import SignUp from "../../pages/SignUp/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -52,5 +53,9 @@ export const router = createBrowserRouter([
   {
     path: "/sign-in",
     element: <SignIn />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
   },
 ]);
