@@ -1,0 +1,288 @@
+[
+  {
+    "property_name": "Luxury Townhouse in Downtown",
+    "location": "Park Lane, New York, USA",
+    "bid_price_max": 550,
+    "bid_price_min": 500,
+    "OverView": {
+      "bed": 3,
+      "bath": 2,
+      "area": 2200,
+      "floor": "3rd (out of 6)",
+      "publish": "01-10-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonkrishnaroy512@gmail.com",
+    "property_type": "Flat",
+    "pictures": [
+      "https://www.loans.com.au/dA/9de8aa8d51/what-factors-affect-property-value.png",
+      "https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/10/condo-vs-apartment.jpeg.jpg",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg"
+    ]
+  },
+  {
+    "property_name": "Chic Studio in Arts District",
+    "location": "Broadway Avenue, Los Angeles, USA",
+    "bid_price_max": 275,
+    "bid_price_min": 250,
+    "OverView": {
+      "bed": 1,
+      "bath": 1,
+      "area": 900,
+      "floor": "4th (out of 8)",
+      "publish": "05-10-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonroy934@gmail.com",
+    "property_type": "Apartment",
+    "pictures": [
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg",
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg"
+    ]
+  },
+  {
+    "property_name": "Modern Loft with Terrace",
+    "location": "Kingston Avenue, Chicago, USA",
+    "bid_price_max": 350,
+    "bid_price_min": 320,
+    "OverView": {
+      "bed": 2,
+      "bath": 2,
+      "area": 1500,
+      "floor": "6th (out of 12)",
+      "publish": "10-10-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonkrishnaroy512@gmail.com",
+    "property_type": "Apartment",
+    "pictures": [
+      "https://www.loans.com.au/dA/9de8aa8d51/what-factors-affect-property-value.png",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg",
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg"
+    ]
+  },
+  {
+    "property_name": "Spacious Suburban Home",
+    "location": "Hilltop Road, Houston, USA",
+    "bid_price_max": 400,
+    "bid_price_min": 370,
+    "OverView": {
+      "bed": 4,
+      "bath": 3,
+      "area": 2500,
+      "floor": "Ground",
+      "publish": "15-10-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonroy934@gmail.com",
+    "property_type": "House",
+    "pictures": [
+      "https://digiestateorg.wordpress.com/wp-content/uploads/2023/11/ask-us-1024x583-1.jpg",
+      "https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/10/condo-vs-apartment.jpeg.jpg",
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg"
+    ]
+  },
+  {
+    "property_name": "Elegant Urban Flat",
+    "location": "Maple Drive, Phoenix, USA",
+    "bid_price_max": 320,
+    "bid_price_min": 300,
+    "OverView": {
+      "bed": 2,
+      "bath": 1,
+      "area": 1100,
+      "floor": "5th (out of 8)",
+      "publish": "20-10-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonkrishnaroy512@gmail.com",
+    "property_type": "Flat",
+    "pictures": [
+      "https://www.loans.com.au/dA/9de8aa8d51/what-factors-affect-property-value.png",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg",
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg"
+    ]
+  },
+  {
+    "property_name": "Cozy Suburban Home",
+    "location": "Elm Street, Philadelphia, USA",
+    "bid_price_max": 270,
+    "bid_price_min": 250,
+    "OverView": {
+      "bed": 3,
+      "bath": 2,
+      "area": 1600,
+      "floor": "Ground",
+      "publish": "25-10-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonroy934@gmail.com",
+    "property_type": "House",
+    "pictures": [
+      "https://digiestateorg.wordpress.com/wp-content/uploads/2023/11/ask-us-1024x583-1.jpg",
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg"
+    ]
+  },
+  {
+    "property_name": "Stylish City Loft",
+    "location": "Broadway Avenue, San Antonio, USA",
+    "bid_price_max": 325,
+    "bid_price_min": 300,
+    "OverView": {
+      "bed": 1,
+      "bath": 1,
+      "area": 950,
+      "floor": "3rd (out of 7)",
+      "publish": "01-11-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonkrishnaroy512@gmail.com",
+    "property_type": "Apartment",
+    "pictures": [
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg",
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg"
+    ]
+  },
+  {
+    "property_name": "Grand Estate with Garden",
+    "location": "Park Lane, San Diego, USA",
+    "bid_price_max": 750,
+    "bid_price_min": 700,
+    "OverView": {
+      "bed": 6,
+      "bath": 5,
+      "area": 6000,
+      "floor": "Ground",
+      "publish": "10-11-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonroy934@gmail.com",
+    "property_type": "House",
+    "pictures": [
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg",
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg",
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg"
+    ]
+  },
+  {
+    "property_name": "Luxurious Penthouse with Pool",
+    "location": "Sunset Boulevard, Los Angeles, USA",
+    "bid_price_max": 850,
+    "bid_price_min": 800,
+    "OverView": {
+      "bed": 4,
+      "bath": 4,
+      "area": 4000,
+      "floor": "Penthouse",
+      "publish": "15-11-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonkrishnaroy512@gmail.com",
+    "property_type": "Penthouse",
+    "pictures": [
+      "https://digiestateorg.wordpress.com/wp-content/uploads/2023/11/ask-us-1024x583-1.jpg",
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg",
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg"
+    ]
+  },
+  {
+    "property_name": "Charming Cottage in the Countryside",
+    "location": "River Road, Austin, USA",
+    "bid_price_max": 220,
+    "bid_price_min": 200,
+    "OverView": {
+      "bed": 2,
+      "bath": 1,
+      "area": 1200,
+      "floor": "Ground",
+      "publish": "20-11-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonroy934@gmail.com",
+    "property_type": "Cottage",
+    "pictures": [
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg",
+      "https://digiestateorg.wordpress.com/wp-content/uploads/2023/11/ask-us-1024x583-1.jpg"
+    ]
+  },
+  {
+    "property_name": "Sleek Downtown Loft",
+    "location": "Main Street, Seattle, USA",
+    "bid_price_max": 310,
+    "bid_price_min": 290,
+    "OverView": {
+      "bed": 1,
+      "bath": 1,
+      "area": 1000,
+      "floor": "8th (out of 15)",
+      "publish": "25-11-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonkrishnaroy512@gmail.com",
+    "property_type": "Loft",
+    "pictures": [
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg",
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg"
+    ]
+  },
+  {
+    "property_name": "Elegant Beachfront Condo",
+    "location": "Ocean Drive, Miami, USA",
+    "bid_price_max": 650,
+    "bid_price_min": 600,
+    "OverView": {
+      "bed": 3,
+      "bath": 2,
+      "area": 1800,
+      "floor": "12th (out of 20)",
+      "publish": "01-12-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonroy934@gmail.com",
+    "property_type": "Condo",
+    "pictures": [
+      "https://media.self.com/photos/630635c30b7f36ce816f374a/4:3/w_2560%2Cc_limit/DAB03919-10470989.jpg",
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg",
+      "https://digiestateorg.wordpress.com/wp-content/uploads/2023/11/ask-us-1024x583-1.jpg"
+    ]
+  },
+  {
+    "property_name": "Rustic Farmhouse with Acreage",
+    "location": "Country Lane, Denver, USA",
+    "bid_price_max": 500,
+    "bid_price_min": 450,
+    "OverView": {
+      "bed": 5,
+      "bath": 3,
+      "area": 3500,
+      "floor": "Ground",
+      "publish": "05-12-2024",
+      "winner": null
+    },
+    "bid_requests": [],
+    "property_owner": "jibonkrishnaroy512@gmail.com",
+    "property_type": "Farmhouse",
+    "pictures": [
+      "https://psgroup.in/blog/wp-content/uploads/2021/01/Navyom-Living-dining.jpg",
+      "https://digiestateorg.wordpress.com/wp-content/uploads/2023/11/ask-us-1024x583-1.jpg",
+      "https://www.checkatrade.com/blog/wp-content/uploads/2021/02/how-much-does-it-cost-to-build-flats-uk.jpg"
+    ]
+  }
+]

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useUserActions from "../../lib/hooks/useUserActions";
 import { FaAngleRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function DashboardNav() {
   const dashboardRoutes = [
@@ -24,6 +25,8 @@ export default function DashboardNav() {
   const handleOpen = () => {
     setOpen(!open);
   };
+
+  const navigate = useNavigate();
 
   return (
     <div
@@ -56,7 +59,10 @@ export default function DashboardNav() {
         ))}
         <li>
           <div
-            onClick={logOut}
+            onClick={() => {
+              logOut();
+              navigate("/");
+            }}
             className={`block cursor-pointer py-2 px-4 my-2 font-medium rounded hover:bg-blue-200`}
           >
             Sign out

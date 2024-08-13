@@ -8,9 +8,7 @@ export default function PrivetRouter({ children }) {
   const [isUserLoaded, setIsUserLoaded] = useState(false);
 
   useEffect(() => {
-    if (!user) {
-      setIsUserLoaded(true);
-    }
+    setIsUserLoaded(true);
   }, [user]);
 
   if (!isUserLoaded) {
@@ -21,7 +19,7 @@ export default function PrivetRouter({ children }) {
     return <>{children}</>;
   }
 
-  if (!user && !isUserLoaded) {
+  if (!user && isUserLoaded) {
     return <Error />;
   }
 }

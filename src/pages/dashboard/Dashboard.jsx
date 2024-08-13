@@ -19,6 +19,7 @@ export default function Dashboard() {
   const propertyOwners = (users || []).filter(
     (u) => u.role === "property_owner"
   );
+  const bidders = (users || []).filter((u) => u.role === "bidder");
   console.log(users);
   return (
     <div>
@@ -42,10 +43,10 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="bg-blue-200 w-full rounded p-4">
-          <h3 className="text-xl font-medium">All Users</h3>
+          <h3 className="text-xl font-medium">All Bidders</h3>
           <div className="text-5xl font-semibold flex justify-between flex-wrap mt-4">
             <FaUsers />
-            {users?.length}
+            {bidders?.length}
           </div>
         </div>
       </div>

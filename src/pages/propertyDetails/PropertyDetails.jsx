@@ -32,7 +32,7 @@ const PropertyDetails = () => {
         </div>
         <p className="text-2xl font-bold">$300K</p>
       </div>
-      <div className="gap-4 flex">
+      <div className="gap-4 flex max-md:flex-col">
         <div className="w-4/5">
           <hr className="mb-4" />
           <div>
@@ -61,7 +61,7 @@ const PropertyDetails = () => {
           </div>
         </div>
 
-        <div className="bg-blue-100 p-6 h-full w-full max-w-sm">
+        <div className="bg-blue-100 p-6 h-full max-w-sm">
           <p className="text-gray-500">Property Value</p>
           <h3 className="font-bold text-2xl mb-4">300k - 310k</h3>
           <p className="font-medium text-gray-500">
