@@ -21,6 +21,7 @@ import MyProperties from "../../pages/dashboard/MyProperties";
 import MyBids from "../../pages/dashboard/MyBids";
 import PrivetRouter from "../features/routes/PrivetRouter";
 import PublicRouter from "../features/routes/PublicRouter";
+import AddProperty from "../../pages/dashboard/AddProperty";
 
 export const router = createBrowserRouter([
   {
@@ -76,7 +77,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/add-property",
-        element: <Properties />,
+        element: <AddProperty />,
       },
       {
         path: "/dashboard/properties",

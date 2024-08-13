@@ -148,9 +148,11 @@ const SearchBox = () => {
                   name="propertyType"
                   className="p-2  w-full bg-blue-50  rounded-sm"
                 >
-                  <option value={""}>Property Type</option>
-                  <option value={""}>Type 1</option>
-                  <option value={""}>Type 2</option>
+                  <option value="">Property Type</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="House">House</option>
+                  <option value="Flat">Flat</option>
                 </select>
               </div>
               <div>
