@@ -70,7 +70,7 @@ const PropertyOwnerSignUp = () => {
 
   const trigFailInput = useStateMachineInput(rive, "State Machine 1", "fail");
   useEffect(() => {
-    if (numLookInput) numLookInput.value = 0;
+    if (numLookInput) numLookInput.value = 0; // Initialize numLookInput
     if (isCheckingInput) isCheckingInput.value = false;
     if (isHandsUpInput) isHandsUpInput.value = false;
   }, [numLookInput, isCheckingInput, isHandsUpInput]);
@@ -206,7 +206,7 @@ const PropertyOwnerSignUp = () => {
         </div>
         <div className="w-full max-w-2xl bg-white shadow-md rounded-lg p-8">
           <h2 className="text-2xl font-bold text-center mb-6">
-            Register as Bidder
+            Register as Property Owner
           </h2>
           <form
             onSubmit={handleSubmit}
@@ -337,10 +337,10 @@ const PropertyOwnerSignUp = () => {
             Login with Google
           </button>
           <button
-            onClick={() => navigate("/property-owner-sign-up")}
+            onClick={() => navigate("/sign-up")}
             className="btn mt-4 bg-blue-600 hover:bg-blue-500 text-white  border-none rounded w-full"
           >
-            Became a Property Owner
+            Became a Bidder
           </button>
           <p className="text-center text-sm mt-4">
             Already have an account?{" "}

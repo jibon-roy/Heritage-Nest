@@ -10,6 +10,7 @@ import SignIn from "../../pages/signin/SignIn";
 import SearchDetails from "../../pages/SearchDetails/SearchDetails";
 import PropertyDetails from "../../pages/propertyDetails/PropertyDetails";
 import SignUp from "../../pages/SignUp/SignUp";
+import PropertyOwnerSignUp from "../../pages/SignUp/PropertyOwnerSignUp";
 
 export const router = createBrowserRouter([
   {
@@ -57,5 +58,9 @@ export const router = createBrowserRouter([
   {
     path: "/sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "/property-owner-sign-up",
+    element: <PropertyOwnerSignUp />,
   },
 ]);
