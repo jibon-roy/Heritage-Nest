@@ -10,8 +10,10 @@ import {
 } from "../../lib/features/auth/authActions";
 import { FaLeftLong } from "react-icons/fa6";
 import useUserActions from "../../lib/hooks/useUserActions";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
@@ -51,15 +53,26 @@ const SignUp = () => {
   );
   const { user, logOut } = useUserActions();
 
+  useEffect(() => {
+    let timer;
+
+    if (user) {
+      timer = setTimeout(() => {
+        logOut();
+      }, 7000);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [logOut, user]);
+
   const trigFailInput = useStateMachineInput(rive, "State Machine 1", "fail");
   useEffect(() => {
     if (numLookInput) numLookInput.value = 0; // Initialize numLookInput
     if (isCheckingInput) isCheckingInput.value = false;
     if (isHandsUpInput) isHandsUpInput.value = false;
-    if (user) {
-      logOut();
-    }
-  }, [numLookInput, isCheckingInput, isHandsUpInput, user, logOut]);
+  }, [numLookInput, isCheckingInput, isHandsUpInput]);
 
   const handleUsernameChange = (e) => {
     const usernameValue = e.target.value;
@@ -113,7 +126,10 @@ const SignUp = () => {
   };
 
   const handleLoginWithGoogle = () => {
-    dispatch(loginUserWithGoogle());
+    dispatch(loginUserWithGoogle()).then((data) => {
+      if (data)
+        navigate("/", { replace: location.state ? location.state : "/" });
+    });
   };
 
   // State for form errors
@@ -140,7 +156,15 @@ const SignUp = () => {
       trigFailInput.fire();
     }
     if (validate()) {
-      dispatch(registerUser(formData));
+      dispatch(registerUser(formData)).then((data) => {
+        if (data)
+          if (user) {
+            logOut();
+          }
+        navigate("/sign-in", {
+          replace: location.state ? location.state : "/sign-in",
+        });
+      });
     }
   };
 

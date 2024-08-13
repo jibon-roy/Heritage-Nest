@@ -19,9 +19,17 @@ const SignIn = () => {
   const { user, logOut } = useUserActions();
 
   useEffect(() => {
+    let timer;
+
     if (user) {
-      logOut();
+      timer = setTimeout(() => {
+        logOut();
+      }, 7000);
     }
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [logOut, user]);
 
   const [email, setEmail] = useState("");
@@ -68,12 +76,11 @@ const SignIn = () => {
 
     if (inputRef.current) {
       const inputWidth = inputRef.current.offsetWidth;
-      const maxNumLook = 100; // Maximum value for numLook
+      const maxNumLook = 100;
       const multiplier = maxNumLook / inputWidth;
       const numLookValue = usernameValue.length * multiplier;
 
       if (numLookInput) {
-        // Set the value on the Rive state machine input
         numLookInput.value = Math.min(numLookValue, maxNumLook) * 10;
       }
     }
@@ -112,10 +119,12 @@ const SignIn = () => {
     // Dispatch action
     if (!hasError) {
       try {
-        await dispatch(
-          loginUserWithEmail({ email: email, password: password })
-        ).unwrap();
-        navigate("/", { replace: location.state ? location.state : "/" });
+        await dispatch(loginUserWithEmail({ email: email, password: password }))
+          .unwrap()
+          .then((user) => {
+            if (user)
+              navigate("/", { replace: location.state ? location.state : "/" });
+          });
       } catch (error) {
         console.error("Login error:", error);
       }
@@ -125,8 +134,10 @@ const SignIn = () => {
   const handleLoginWithGoogle = () => {
     console.log("working");
     try {
-      dispatch(loginUserWithGoogle());
-      navigate("/", { replace: location.state ? location.state : "/" });
+      dispatch(loginUserWithGoogle()).then((user) => {
+        if (user)
+          navigate("/", { replace: location.state ? location.state : "/" });
+      });
     } catch (error) {
       console.log(error);
     }

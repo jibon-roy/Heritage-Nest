@@ -1,5 +1,5 @@
+import Error from "../../../pages/error/Error";
 import useUserActions from "../../hooks/useUserActions";
-import Error from "../../../pages/Error";
 
 export default function PrivetRouter({ children }) {
   const { user } = useUserActions();
