@@ -12,8 +12,18 @@ import {
   loginUserWithEmail,
   loginUserWithGoogle,
 } from "../../lib/features/auth/authActions";
+import useUserActions from "../../lib/hooks/useUserActions";
+import { useEffect } from "react";
 
 const SignIn = () => {
+  const { user, logOut } = useUserActions();
+
+  useEffect(() => {
+    if (user) {
+      logOut();
+    }
+  }, [logOut, user]);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");

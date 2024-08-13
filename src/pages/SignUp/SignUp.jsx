@@ -9,6 +9,7 @@ import {
   registerUser,
 } from "../../lib/features/auth/authActions";
 import { FaLeftLong } from "react-icons/fa6";
+import useUserActions from "../../lib/hooks/useUserActions";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -48,14 +49,17 @@ const SignUp = () => {
     "State Machine 1",
     "success"
   );
+  const { user, logOut } = useUserActions();
 
   const trigFailInput = useStateMachineInput(rive, "State Machine 1", "fail");
-
   useEffect(() => {
     if (numLookInput) numLookInput.value = 0; // Initialize numLookInput
     if (isCheckingInput) isCheckingInput.value = false;
     if (isHandsUpInput) isHandsUpInput.value = false;
-  }, [numLookInput, isCheckingInput, isHandsUpInput]);
+    if (user) {
+      logOut();
+    }
+  }, [numLookInput, isCheckingInput, isHandsUpInput, user, logOut]);
 
   const handleUsernameChange = (e) => {
     const usernameValue = e.target.value;
