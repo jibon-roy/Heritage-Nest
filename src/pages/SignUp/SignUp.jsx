@@ -22,6 +22,7 @@ const PropertyOwnerSignUp = () => {
     password: "",
     dateOfBirth: "",
     gender: "",
+    role: "bidder",
   });
 
   const inputRef = useRef(null);
@@ -84,7 +85,7 @@ const PropertyOwnerSignUp = () => {
     const refFunc = (ref) => {
       if (ref.current) {
         const inputWidth = ref.current.offsetWidth;
-        const maxNumLook = 100; // Maximum value for numLook
+        const maxNumLook = 100;
         const multiplier = maxNumLook / inputWidth;
         const numLookValue = usernameValue.length * multiplier;
 

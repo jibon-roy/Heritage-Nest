@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { useRive, Fit, Alignment, useStateMachineInput } from "rive-react";
 import { useDispatch } from "react-redux";
 import {
-  loginUserWithGoogle,
+  //   loginUserWithGoogle,
   registerUser,
 } from "../../lib/features/auth/authActions";
 import { FaLeftLong } from "react-icons/fa6";
@@ -22,6 +22,7 @@ const PropertyOwnerSignUp = () => {
     password: "",
     dateOfBirth: "",
     gender: "",
+    role: "property_owner",
   });
 
   const inputRef = useRef(null);
@@ -126,14 +127,14 @@ const PropertyOwnerSignUp = () => {
     }
   };
 
-  const handleLoginWithGoogle = () => {
-    dispatch(loginUserWithGoogle()).then((data) => {
-      if (data) {
-        swalAlert("success", "Login Successful.", "Welcome");
-        navigate("/", { replace: location.state ? location.state : "/" });
-      }
-    });
-  };
+  //   const handleLoginWithGoogle = () => {
+  //     dispatch(loginUserWithGoogle()).then((data) => {
+  //       if (data) {
+  //         swalAlert("success", "Login Successful.", "Welcome");
+  //         navigate("/", { replace: location.state ? location.state : "/" });
+  //       }
+  //     });
+  //   };
 
   // State for form errors
   const [errors, setErrors] = useState({});
@@ -329,13 +330,13 @@ const PropertyOwnerSignUp = () => {
               Register
             </button>
           </form>
-          <button
+          {/* <button
             onClick={handleLoginWithGoogle}
             className="btn flex w-full items-center rounded mx-auto justify-center mt-4"
           >
             <FcGoogle />
             Login with Google
-          </button>
+          </button> */}
           <button
             onClick={() => navigate("/sign-up")}
             className="btn mt-4 bg-blue-600 hover:bg-blue-500 text-white  border-none rounded w-full"

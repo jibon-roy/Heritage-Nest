@@ -12,7 +12,7 @@ import axiosPublic from "../axios/axiosPublic";
 export const registerUser = createAsyncThunk(
   "auth/register",
   async (
-    { name, dateOfBirth, gender, email, password },
+    { name, dateOfBirth, gender, email, password, role },
     { rejectWithValue }
   ) => {
     try {
@@ -20,7 +20,7 @@ export const registerUser = createAsyncThunk(
         auth,
         email,
         password
-      )
+      );
       const user = userCredential.user;
 
       // Send user details to backend
@@ -38,6 +38,7 @@ export const registerUser = createAsyncThunk(
           email,
           uid: user.uid,
           password,
+          role,
         },
         config
       );
@@ -45,10 +46,8 @@ export const registerUser = createAsyncThunk(
       const tokenFromBackend = data.userToken;
       localStorage.setItem("userToken", tokenFromBackend);
 
-      
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
- 
       if (tokenFromBackend !== tokenFromLocalStorage) {
         throw new Error("Token mismatch error.");
       }
@@ -85,10 +84,8 @@ export const loginUserWithGoogle = createAsyncThunk(
       const tokenFromBackend = data.userToken;
       localStorage.setItem("userToken", tokenFromBackend);
 
-      
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
-    
       if (tokenFromBackend !== tokenFromLocalStorage) {
         throw new Error("Token mismatch error.");
       }
@@ -129,10 +126,8 @@ export const loginUserWithEmail = createAsyncThunk(
       const tokenFromBackend = data.userToken;
       localStorage.setItem("userToken", tokenFromBackend);
 
-    
       const tokenFromLocalStorage = localStorage.getItem("userToken");
 
-   
       if (tokenFromBackend !== tokenFromLocalStorage) {
         throw new Error("Token mismatch error.");
       }
