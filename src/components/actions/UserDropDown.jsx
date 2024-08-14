@@ -3,6 +3,8 @@ import useUserActions from "../../lib/hooks/useUserActions";
 
 export default function UserDropdown() {
   const { user, logOut } = useUserActions();
+
+  const isAdmin = user?.role == "admin";
   return (
     <div className="dropdown dropdown-end">
       <div
@@ -28,7 +30,7 @@ export default function UserDropdown() {
       >
         <li>
           <Link to={"/dashboard"} className="justify-between">
-            Dashboard
+            {isAdmin ? "Dashboard" : "Profile"}
             <span className="badge">New</span>
           </Link>
         </li>

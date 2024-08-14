@@ -31,8 +31,8 @@ export default function DashboardNav() {
       path: "/dashboard/properties",
       label: "All Properties",
       admin: true,
-      property_owner: true,
-      bidder: true,
+      property_owner: false,
+      bidder: false,
     },
     {
       path: "/dashboard/my-properties",

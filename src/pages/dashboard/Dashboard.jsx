@@ -8,16 +8,16 @@ import useLoadProperties from "../../lib/hooks/admin/useLoadProperties";
 // import useAxiosSecure from "../../lib/hooks/useAxiosSecure";
 
 export default function Dashboard() {
+  const { user } = useUserActions();
   const { users } = useLoadUsers();
   const { properties } = useLoadProperties();
-  const { user } = useUserActions();
   const role =
     user?.role === "admin"
       ? "Admin"
       : user?.role === "property_owner"
       ? "Property Owner"
       : "Bidder";
-
+  // console.log(user);
   const propertyOwners = (users || []).filter(
     (u) => u.role === "property_owner"
   );
@@ -26,17 +26,21 @@ export default function Dashboard() {
   );
   const bidders = (users || []).filter((u) => u.role === "bidder");
 
-  console.log(properties);
+  // console.log(properties);
   return (
     <div>
       <Heading center={true}>
         {role === "Admin" ? "Dashboard" : "Your Profile"}
-        <div className="text-2xl font-medium mt-3">{role}</div>
+        <div className="text-2xl font-medium mt-3">{user?.displayName}</div>
       </Heading>
       <div className="max-w-md mb-4 mx-auto bg-blue-50 rounded-lg shadow-md p-6">
         <div className="flex items-center space-x-4">
           <img
-            src={user?.photoURL}
+            src={
+              user?.photoURL
+                ? user.photoURL
+                : "https://cdn-icons-png.flaticon.com/512/9187/9187604.png"
+            }
             alt={user?.displayName}
             className="w-24 h-24 rounded-full border-4 border-blue-300"
           />
@@ -45,8 +49,7 @@ export default function Dashboard() {
               {user?.displayName}
             </h2>
 
-            <p className="text-blue-500">Gender: {user?.gender}</p>
-            <p className="text-blue-500">Date of Birth: {user?.dateOfBirth}</p>
+            <p className="text-blue-500">User type: {user?.role}</p>
           </div>
         </div>
       </div>

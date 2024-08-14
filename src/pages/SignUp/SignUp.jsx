@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import { swalAlert } from "../../components/actions/SwalAlert";
 import { useSelector } from "react-redux";
 import Loading from "../../components/common/Loading";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../lib/firebase/firebase";
 
 const PropertyOwnerSignUp = () => {
   const navigate = useNavigate();
@@ -187,18 +189,18 @@ const PropertyOwnerSignUp = () => {
       setLoadRegister(true);
       try {
         await dispatch(registerUser(formData)).unwrap();
+        await updateProfile(auth.currentUser, {
+          displayName: formData.name,
+        });
         setLoadRegister(false);
         if (success) {
-          swalAlert(
-            "success",
-            "Registration success. Please login.",
-            "Welcome!",
-            "Home"
-          ).then(() => {
-            navigate(location.state ? location.state : "/", {
-              replace: true,
-            });
-          });
+          swalAlert("success", "Registration success", "Welcome!", "Ok").then(
+            () => {
+              navigate(location.state ? location.state : "/", {
+                replace: true,
+              });
+            }
+          );
         }
       } catch (err) {
         swalAlert("error", err.message, "Oops!");

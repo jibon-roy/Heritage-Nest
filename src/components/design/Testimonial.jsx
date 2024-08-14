@@ -8,7 +8,8 @@ const testimonials = [
     unmatched. | feel confident using my card for both
     everyday purchases and travel. Its the peace of mind 
     was looking for.`,
-    image: "https://via.placeholder.com/80",
+    image:
+      "https://img.freepik.com/free-photo/front-view-portrait-businessman-with-glasses_23-2148816831.jpg",
     name: "John Doe",
     designation: "CEO at Company",
     location: "New York, USA",
@@ -20,7 +21,8 @@ const testimonials = [
     unmatched. | feel confident using my card for both
     everyday purchases and travel. Its the peace of mind 
     was looking for.`,
-    image: "https://via.placeholder.com/80",
+    image:
+      "https://us.images.westend61.de/0001262177j/portrait-of-laughing-casual-businessman-AFVF03994.jpg",
     name: "Jane Smith",
     designation: "Marketing Manager",
     location: "Los Angeles, USA",
@@ -83,7 +85,11 @@ const Testimonial = ({
           />
         </div>
         <p className="max-w-lg mt-8 text-gray-700 text-center">{review}</p>
-        <img src={image} alt={name} className="w-16 h-16 mt-8 rounded-full" />
+        <img
+          src={image}
+          alt={name}
+          className="w-16 h-16 object-cover mt-8 rounded-full"
+        />
         <div className="mt-4 text-center text-sm text-gray-600">
           <div className="font-semibold text-center text-xl">{name}</div>
           <div>{designation}</div>
