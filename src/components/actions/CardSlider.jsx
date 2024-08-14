@@ -30,16 +30,16 @@ export default function CardSlider({ data }) {
       delay: 3000,
       disableOnInteraction: false,
     },
-    loop: true,
+    // loop: true,
     modules: [Navigation, Autoplay],
   };
 
   return (
     <div className="relative pb-20">
       <Swiper {...swiperParams}>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <SwiperSlide key={index}>
-            <Card />
+            <Card item={item} />
           </SwiperSlide>
         ))}
       </Swiper>

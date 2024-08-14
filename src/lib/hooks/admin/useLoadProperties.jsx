@@ -8,6 +8,7 @@ export default function useLoadProperties() {
     data: properties,
     isLoading,
     error,
+    refetch,
   } = useQuery({
     queryKey: ["properties"],
     queryFn: async () => {
@@ -16,5 +17,5 @@ export default function useLoadProperties() {
     },
   });
 
-  return { properties, isLoading, error };
+  return { properties, isLoading, error, refetch };
 }

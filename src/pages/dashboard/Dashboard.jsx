@@ -4,6 +4,7 @@ import Heading from "../../components/design/Heading";
 import useLoadUsers from "../../lib/hooks/admin/useLoadUsers";
 import useUserActions from "../../lib/hooks/useUserActions";
 import useLoadProperties from "../../lib/hooks/admin/useLoadProperties";
+// import { Link } from "react-router-dom";
 // import useAxiosSecure from "../../lib/hooks/useAxiosSecure";
 
 export default function Dashboard() {
@@ -29,7 +30,7 @@ export default function Dashboard() {
   return (
     <div>
       <Heading center={true}>
-        Profile
+        {role === "Admin" ? "Dashboard" : "Your Profile"}
         <div className="text-2xl font-medium mt-3">{role}</div>
       </Heading>
       <div className="max-w-md mb-4 mx-auto bg-blue-50 rounded-lg shadow-md p-6">
@@ -43,6 +44,7 @@ export default function Dashboard() {
             <h2 className="text-xl font-semibold text-blue-600">
               {user?.displayName}
             </h2>
+
             <p className="text-blue-500">Gender: {user?.gender}</p>
             <p className="text-blue-500">Date of Birth: {user?.dateOfBirth}</p>
           </div>
