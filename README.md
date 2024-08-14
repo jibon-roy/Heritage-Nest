@@ -14,6 +14,10 @@ Frontend of the Heritage Nest project designed with React, Tailwind CSS, and Dai
 - **API Requests**: Axios
 - **Other Libraries**: React Multi Carousel, Swiper
 
+## Live Link:
+
+https://heritage-nest-site.web.app
+
 ## Setup
 
 1. Clone the repository:
