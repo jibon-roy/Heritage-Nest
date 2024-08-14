@@ -11,7 +11,7 @@ export default function useLoadPropertyById(id) {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["property-id"],
+    queryKey: [`property-${id}`],
     queryFn: async () => {
       const response = await axiosSecure.get(`/api/v1/property/${id}`);
       return response.data;

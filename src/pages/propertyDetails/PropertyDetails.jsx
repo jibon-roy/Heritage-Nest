@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../lib/hooks/useAxiosSecure";
 import { swalAlert } from "../../components/actions/SwalAlert";
 import useLoadBids from "../../lib/hooks/admin/useLoadBids";
+// import useLoadBidById from "../../lib/hooks/admin/useLoadBidById";
 
 const PropertyDetails = () => {
   const [values, setValues] = useState([20, 50]);
@@ -43,9 +44,18 @@ const PropertyDetails = () => {
     setImg(src);
   };
 
-  const { bids } = useLoadBids();
-  console.log(bids);
+  const { bids, refetch } = useLoadBids();
+  // const { bid, refetch: refetch2 } = useLoadBidById(property?._id);
+  // console.log(bid);
+  // console.log(sortBidsByPrice);
+  const alreadyBidded = bids?.find(
+    (a) => a?.bidder === user?.email && a.propertyId === property?._id
+  );
+  const bidders = bids?.filter((a) => a.propertyId === property?._id);
 
+  const sortBidsByPrice = bidders?.sort(
+    (a, b) => a.bid_price_max - b.bid_price_max
+  );
   const handleBid = async () => {
     const max = values[1] * 10;
     const min = values[0] * 10;
@@ -61,6 +71,8 @@ const PropertyDetails = () => {
         })
         .then(() => {
           swalAlert("success", "Bid submited.", "Thank you.");
+          refetch();
+          // refetch2();
         });
       // console.log(data);
     } catch (error) {
@@ -271,10 +283,24 @@ const PropertyDetails = () => {
               </div>
             </div>
             <div>
-              {user ? (
+              {alreadyBidded ? (
+                <button
+                  className="bg-blue-50 py-3 rounded font-medium px-6 mx-auto text-center block"
+                  disabled
+                >
+                  Already Bidded
+                </button>
+              ) : user?.role === "bidder" ? (
                 <Button type={"secondary"} onClick={handleBid} center={true}>
                   Bid Property
                 </Button>
+              ) : user?.role === "admin" || user?.role === "property_owner" ? (
+                <button
+                  className="bg-blue-50 py-3 rounded font-medium px-6 mx-auto text-center block"
+                  disabled
+                >
+                  Administrators or <br /> property owners <br /> cannot bid
+                </button>
               ) : (
                 <Link to={"/sign-in"}>
                   <Button type={"secondary"} center={true}>
@@ -293,7 +319,7 @@ const PropertyDetails = () => {
           </div>
         </div>
       </div>
-      <Winner />
+      <Winner sortBidsByPrice={sortBidsByPrice} />
       <Services />
       <PopularCard />
     </Section>

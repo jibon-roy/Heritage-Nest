@@ -10,7 +10,7 @@ export default function useLoadPropertiesByEmail(email) {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["my-properties"],
+    queryKey: [`my-propertes-${email}`],
     queryFn: async () => {
       const response = await axiosSecure.get(`/api/v1/properties/${email}`);
       return response.data;

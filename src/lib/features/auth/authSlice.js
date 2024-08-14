@@ -43,7 +43,7 @@ const authSlice = createSlice({
         state.success = true;
         state.userInfo = action.payload.userInfo;
         state.userToken = action.payload.userToken;
-        swalAlert("success", "Registration success. Please login.", "Welcome!");
+        swalAlert("success", "Registration success. ", "Welcome!");
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
