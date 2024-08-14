@@ -28,7 +28,23 @@ Frontend of the Heritage Nest project designed with React, Tailwind CSS, and Dai
    ```bash
    pnpm i
    ```
-4. Install node:
+4. Replace env.local with your env:
    ```bash
-   pnpm run dev
+   VITE_apiKey= Your apiKey
+   VITE_authDomain= Your authDomain
+   VITE_projectId= Your projectId
+   VITE_storageBucket= Your storageBucket
+   VITE_messagingSenderId= Your messagingSenderId
+   VITE_appId= Your appId
+   VITE_measurementId= Your measurementId
+   VITE_MODE=dev
+   VITE_PROD_URL= your prod uri
+   VITE_DEV_URL= your dev uri
+   VITE_DEV_BACKEND_URI= your backend dev uri
+   VITE_PROD_BACKEND_URI= your backend prod uri
    ```
+5. Run project:
+
+```bash
+pnpm run dev
+```
