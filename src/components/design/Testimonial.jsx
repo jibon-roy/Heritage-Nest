@@ -1,5 +1,4 @@
 import Heading from "./Heading";
-import Section from "./Section";
 
 const testimonials = [
   {
@@ -101,9 +100,9 @@ const Testimonial = ({
 );
 
 const TestimonialSection = () => (
-  <Section className="mx-auto mb-20 p-6">
+  <div className="mb-20">
     <Heading center={true}>Testimonials</Heading>
-    <div className="block md:flex justify-center gap-6 items-center">
+    <div className="block md:flex justify-between w-full gap-6 items-center">
       {testimonials.map((testimonial, index) => (
         <Testimonial
           id={testimonial.id}
@@ -117,7 +116,7 @@ const TestimonialSection = () => (
         />
       ))}
     </div>
-  </Section>
+  </div>
 );
 
 export default TestimonialSection;

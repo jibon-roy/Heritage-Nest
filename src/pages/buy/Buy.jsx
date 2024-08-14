@@ -1,4 +1,5 @@
 import SearchBox from "../../components/actions/SearchBox";
+import Section from "../../components/design/Section";
 import TestimonialSection from "../../components/design/Testimonial";
 import NewListedProperties from "./NewListedProperties";
 import PopularCard from "./PopularCard";
@@ -11,7 +12,9 @@ export default function Buy() {
       <StatisticsCards />
       <PopularCard />
       <NewListedProperties />
-      <TestimonialSection />
+      <Section>
+        <TestimonialSection />
+      </Section>
     </>
   );
 }

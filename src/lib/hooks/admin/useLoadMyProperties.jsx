@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./../useAxiosSecure";
 
-export default function useLoadProperties(email) {
+export default function useLoadPropertiesByEmail(email) {
   const axiosSecure = useAxiosSecure();
 
   const {

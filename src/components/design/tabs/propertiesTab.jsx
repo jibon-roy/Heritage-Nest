@@ -3,13 +3,13 @@ import LandingCard from "../LandingCard";
 
 export default function PropertiesTab({ properties }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 5;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = properties.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = properties?.slice(indexOfFirstItem, indexOfLastItem);
 
-  const totalPages = Math.ceil(properties.length / itemsPerPage);
+  const totalPages = Math.ceil(properties?.length / itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -18,7 +18,7 @@ export default function PropertiesTab({ properties }) {
   return (
     <>
       <div>
-        {currentItems.map((property, key) => (
+        {currentItems?.map((property, key) => (
           <div key={key}>
             <LandingCard property={property} />
           </div>

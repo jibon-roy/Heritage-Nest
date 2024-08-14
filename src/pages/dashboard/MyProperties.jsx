@@ -1,14 +1,16 @@
 import { swalAlert } from "../../components/actions/SwalAlert";
 import Loading from "../../components/common/Loading";
 import Heading from "../../components/design/Heading";
+import useLoadPropertiesByEmail from "../../lib/hooks/admin/useLoadMyProperties";
 // import useLoadUsers from "../../lib/hooks/admin/useLoadUsers";
 import useAxiosSecure from "./../../lib/hooks/useAxiosSecure";
 import useUserActions from "./../../lib/hooks/useUserActions";
-import useLoadPropertyById from "./../../lib/hooks/admin/useLoadPropertyById";
 
 export default function MyProperties() {
   const { user } = useUserActions();
-  const { properties, isLoading, refetch } = useLoadPropertyById(user?.email);
+  const { properties, isLoading, refetch } = useLoadPropertiesByEmail(
+    user?.email
+  );
   const axiosSecure = useAxiosSecure();
 
   const handleDelete = (id) => {
@@ -17,7 +19,7 @@ export default function MyProperties() {
       refetch();
     });
   };
-  console.log(properties);
+  // console.log(properties);
   return (
     <div>
       <Heading center={true}>

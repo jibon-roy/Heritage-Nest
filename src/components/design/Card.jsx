@@ -3,7 +3,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
-  console.log(item);
+  // console.log(item);
   return (
     <div className="card rounded-sm bg-[#F9FAFB]">
       <figure className="relative">

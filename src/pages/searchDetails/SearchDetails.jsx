@@ -21,19 +21,19 @@ export default function SearchDetails() {
       case "properties":
         return (
           <div>
-            <PropertiesTab properties={properties} />
+            <PropertiesTab properties={properties || []} />
           </div>
         );
       case "new-project":
         return (
           <div>
-            <NewProjectTab properties={properties} />
+            <NewProjectTab properties={properties || []} />
           </div>
         );
       case "pre-launch":
         return (
           <div>
-            <PreLaunchTab properties={properties} />
+            <PreLaunchTab properties={properties || []} />
           </div>
         );
       default:
@@ -80,10 +80,9 @@ export default function SearchDetails() {
           <hr className="my-4 border-gray-300" />
           <div className="mt-4">{renderContent()}</div>
         </div>
-        <hr />
-        <div className="flex gap-4 bg-blue-50 p-6">
+        <div className="flex gap-4 bg-blue-50 mt-10 p-6">
           <div className="max-w-xs">
-            <div className="text-xl font-bold my-3">Need a Home Loan?</div>
+            <div className="text-2xl font-bold my-3">Need a Home Loan?</div>
             <p>Select how much home loan you can take.</p>
           </div>
           <div className="flex-1 flex items-center">
@@ -93,7 +92,7 @@ export default function SearchDetails() {
                 min={0}
                 max="100"
                 defaultValue="0"
-                className="range range-sm [--range-shdw:#0051A1] "
+                className="range range-md [--range-shdw:#0051A1] "
                 step="25"
               />
               <div className="flex w-full justify-between px-2 text-sm font-medium">

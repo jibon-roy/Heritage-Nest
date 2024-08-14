@@ -1,21 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "./../useAxiosSecure";
+// import useAxiosSecure from "./../useAxiosSecure";
+import useAxiosPublic from "../useAxiosPublic";
 
 export default function useLoadPropertyById(id) {
-  const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosPublic();
 
   const {
-    data: properties,
+    data: property,
     isLoading,
     error,
     refetch,
   } = useQuery({
-    queryKey: ["property"],
+    queryKey: ["property-id"],
     queryFn: async () => {
-      const response = await axiosSecure.get(`/api/v1/properties/${id}`);
+      const response = await axiosSecure.get(`/api/v1/property/${id}`);
       return response.data;
     },
   });
 
-  return { properties, isLoading, error, refetch };
+  return { property, isLoading, error, refetch };
 }

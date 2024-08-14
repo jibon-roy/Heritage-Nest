@@ -3,10 +3,11 @@ import Logo from "../design/Logo";
 import { Link } from "react-router-dom";
 import useUserActions from "../../lib/hooks/useUserActions";
 import UserDropdown from "../actions/UserDropDown";
+import { swalAlert } from "../actions/SwalAlert";
 
 export default function Navbar() {
   const { user } = useUserActions();
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <div className="drawer z-50">
@@ -39,7 +40,24 @@ export default function Navbar() {
               <NavLink to={"/buy"}>
                 <div className="mx-2  px-2">Buy</div>
               </NavLink>
-              <div className="mx-2  px-2">Sell</div>
+              {!user?.role === "bidder" ? (
+                <NavLink to={`/dashboard/add-property`}>
+                  <div className="mx-2  px-2">Sell</div>
+                </NavLink>
+              ) : user?.role === "bidder" || !user ? (
+                <div
+                  onClick={() =>
+                    swalAlert("error", "Please login as property owner")
+                  }
+                  className="mx-2 cursor-pointer px-2"
+                >
+                  Sell
+                </div>
+              ) : (
+                <NavLink to={`/property-owner-sign-up`}>
+                  <div className="mx-2  px-2">Sell</div>
+                </NavLink>
+              )}
               <div className="mx-2  px-2">Services</div>
             </div>
             <div className="mx-2 flex-1 flex justify-center px-2">
