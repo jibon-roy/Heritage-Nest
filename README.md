@@ -45,6 +45,6 @@ Frontend of the Heritage Nest project designed with React, Tailwind CSS, and Dai
    ```
 5. Run project:
 
-```bash
-pnpm run dev
-```
+   ```bash
+   pnpm run dev
+   ```
