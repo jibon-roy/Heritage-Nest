@@ -6,31 +6,34 @@ import queryString from "query-string";
 import NewProjectTab from "../../components/design/tabs/NewProjectTab.jsx";
 import PreLaunchTab from "../../components/design/tabs/PreLaunchTab.jsx";
 import TestimonialSection from "../../components/design/Testimonial.jsx";
+import useSearchProperties from "../../lib/hooks/useSearchProperties.jsx";
+import Loading from "../../components/common/Loading.jsx";
 
 export default function SearchDetails() {
   const [activeTab, setActiveTab] = useState("properties");
   const location = useLocation();
   const getSearch = queryString.parseUrl(location.search);
+  const { properties, isLoading } = useSearchProperties(getSearch);
 
-  console.log(getSearch);
+  // console.log(properties);
   const renderContent = () => {
     switch (activeTab) {
       case "properties":
         return (
           <div>
-            <PropertiesTab />
+            <PropertiesTab properties={properties} />
           </div>
         );
       case "new-project":
         return (
           <div>
-            <NewProjectTab />
+            <NewProjectTab properties={properties} />
           </div>
         );
       case "pre-launch":
         return (
           <div>
-            <PreLaunchTab />
+            <PreLaunchTab properties={properties} />
           </div>
         );
       default:
@@ -40,6 +43,7 @@ export default function SearchDetails() {
   return (
     <>
       <Section>
+        <Loading className={isLoading ? "block" : "hidden"} />
         <div className="p-6">
           <div className="flex space-x-4 mb-4">
             <button

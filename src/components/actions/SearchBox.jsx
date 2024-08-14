@@ -171,8 +171,10 @@ const SearchBox = () => {
                   className="p-2  w-full bg-blue-50  rounded-sm"
                 >
                   <option value={""}>Budget</option>
-                  <option value={""}>Budget 1</option>
-                  <option value={""}>Budget 2</option>
+                  <option value={100}>200k</option>
+                  <option value={300}>300k</option>
+                  <option value={500}>500k</option>
+                  <option value={1000}>1000k</option>
                 </select>
               </div>
             </div>

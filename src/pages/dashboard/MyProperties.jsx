@@ -12,8 +12,8 @@ export default function MyProperties() {
   const axiosSecure = useAxiosSecure();
 
   const handleDelete = (id) => {
-    axiosSecure.delete(`/api/v1/properties/${id}`).then(() => {
-      swalAlert("success", "User deleted successfull.");
+    axiosSecure.delete(`/api/v1/property/delete/${id}`).then(() => {
+      swalAlert("success", "Property deleted successful.");
       refetch();
     });
   };
