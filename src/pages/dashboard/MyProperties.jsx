@@ -25,7 +25,7 @@ export default function MyProperties() {
         <div className="text-2xl font-medium mt-3">Manage Properties</div>
       </Heading>
       <Loading className={isLoading ? "block" : "hidden"} />
-      <div className="p-4 max-h-[900px] overflow-y-auto overflow-x-auto">
+      <div className="p-4 max-h-[600px] overflow-y-auto overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>

@@ -55,13 +55,13 @@ export default function Users() {
           <tbody className="bg-white divide-y divide-gray-200">
             {users?.map((user) => (
               <tr key={user._id} className={`hover:bg-blue-50`}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <td className="px-6  whitespace-nowrap text-sm font-medium text-gray-900">
                   {user.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 whitespace-nowrap text-sm text-gray-500">
                   {user.email}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6  whitespace-nowrap text-sm text-gray-500">
                   <select
                     value={user.role}
                     onChange={(e) => handleRoleChange(user._id, e.target.value)}
@@ -72,7 +72,7 @@ export default function Users() {
                     <option value="bidder">Bidder</option>
                   </select>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6  whitespace-nowrap text-sm text-gray-500">
                   <button
                     onClick={() => handleDelete(user._id)}
                     className="text-red-600 hover:text-red-900"
