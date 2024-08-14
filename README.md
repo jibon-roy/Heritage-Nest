@@ -1,8 +1,8 @@
-# Heritage Frontend
+# Heritage Nest Frontend
 
 ## Description:
 
-Frontend of the Heritage project designed with React, Tailwind CSS, and DaisyUI. Features a fully responsive layout, advanced state management using Redux Toolkit, and dynamic animations with Rive. Ensures an engaging and user-friendly experience with modern design principles.
+Frontend of the Heritage Nest project designed with React, Tailwind CSS, and DaisyUI. Features a fully responsive layout, advanced state management using Redux Toolkit, and dynamic animations with Rive. Ensures an engaging and user-friendly experience with modern design principles.
 
 ## Technologies Used
 
