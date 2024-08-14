@@ -4,7 +4,7 @@ import {
   deleteUser as callDeleteUser,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth } from "../lib/firebase";
+import { auth } from "../firebase/firebase";
 
 export default function useUserEdit() {
   const user = auth.currentUser;
