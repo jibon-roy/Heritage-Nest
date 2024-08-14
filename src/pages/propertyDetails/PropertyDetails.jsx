@@ -16,6 +16,9 @@ import Services from "../home/Services";
 import PopularCard from "../buy/PopularCard";
 import Winner from "./Winner";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../lib/hooks/useAxiosSecure";
+import { swalAlert } from "../../components/actions/SwalAlert";
+import useLoadBids from "../../lib/hooks/admin/useLoadBids";
 
 const PropertyDetails = () => {
   const [values, setValues] = useState([20, 50]);
@@ -24,6 +27,7 @@ const PropertyDetails = () => {
   const params = useParams();
   const { property, isLoading } = useLoadPropertyById(params.id);
   // console.log(property);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     // Check if trackRef is defined and has a getBoundingClientRect method
@@ -39,13 +43,29 @@ const PropertyDetails = () => {
     setImg(src);
   };
 
-  const handleBid = () => {
-    const max = values[1];
-    const min = values[0];
+  const { bids } = useLoadBids();
+  console.log(bids);
+
+  const handleBid = async () => {
+    const max = values[1] * 10;
+    const min = values[0] * 10;
     const propertyId = property?._id;
     const bidder = user?.email;
     const data = { max, min, propertyId, bidder };
-    console.log(data);
+    try {
+      await axiosSecure
+        .post("/api/v1/bid", data, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then(() => {
+          swalAlert("success", "Bid submited.", "Thank you.");
+        });
+      // console.log(data);
+    } catch (error) {
+      if (error) swalAlert("error", "Bid not submited.", "Opps!");
+    }
   };
 
   if (isLoading) return <Loading />;
@@ -172,6 +192,7 @@ const PropertyDetails = () => {
                 autoComplete="none"
                 placeholder="Min"
                 type="text"
+                onChange={(e) => (e.target.value = values[0])}
                 value={values[0] * 10000}
                 className="bg-white rounded-md pl-8 py-3 px-4 w-full"
               />
@@ -189,6 +210,7 @@ const PropertyDetails = () => {
                 autoComplete="none"
                 placeholder="Max"
                 type="text"
+                onChange={(e) => (e.target.value = values[1])}
                 value={values[1] * 10000}
                 className="bg-white rounded-md pl-8 py-3 px-4 w-full"
               />
