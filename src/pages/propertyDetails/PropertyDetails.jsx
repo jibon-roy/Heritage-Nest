@@ -45,7 +45,7 @@ const PropertyDetails = () => {
     const propertyId = property?._id;
     const bidder = user?.email;
     const data = { max, min, propertyId, bidder };
-    // console.log(data);
+    console.log(data);
   };
 
   if (isLoading) return <Loading />;

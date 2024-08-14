@@ -114,7 +114,9 @@ export default function DashboardNav() {
       >
         <FaAngleRight />
       </button>
-      <h1 className="text-2xl font-semibold px-4 mb-6">Dashboard</h1>
+      <h1 className="text-2xl font-semibold px-4 mb-6">
+        {user?.role == "admin" ? "Dashboard" : "Profile"}
+      </h1>
       <ul>
         {filteredRoutes.map((route) => (
           <li key={route.path}>
